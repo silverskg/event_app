@@ -12,6 +12,8 @@
       .container
         = link_to "EventsApp", root_path, class: "navbar-brand"
         %ui.navbar-nav
+          %li.nav-item
+            = link_to "イベントを作る", new_event_path, class: "nav-link"
           - if logged_in?
             %li.nav-item
               = link_to "ログアウト", logout_path, class: "nav-link", method: :delete
@@ -22,4 +24,7 @@
       - if flash.notice
         .alert.alert-success
           = flash.notice
+      - if flash.alert
+        .alert.alert-danger
+          = flash.alert    
     = yield
