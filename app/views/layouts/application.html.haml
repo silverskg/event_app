@@ -11,5 +11,8 @@
     %header.navbar.navbar-expand-sm.navbar-light.bg-light
       .container
         = link_to "EventsApp", root_path, class: "navbar-brand"
+        %ui.navbar-nav
+          %li.nav-item
+            = link_to "GitHubでログイン", "/auth/github", class: "nav-link", method: :post
     .container
     = yield
