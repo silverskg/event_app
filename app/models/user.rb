@@ -1,5 +1,5 @@
 class User < ApplicationRecord 
-  before_destory :check_all_events_finished
+  before_destroy :check_all_events_finished
 
   has_many :created_events, class_name: "Event", foreign_key: "owner_id", dependent: :nullify
   has_many :tickets, dependent: :nullify
