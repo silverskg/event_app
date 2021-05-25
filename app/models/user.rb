@@ -1,4 +1,8 @@
 class User < ApplicationRecord 
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
   before_destroy :check_all_events_finished
 
   has_many :created_events, class_name: "Event", foreign_key: "owner_id", dependent: :nullify
