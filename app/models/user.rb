@@ -15,7 +15,7 @@ class User < ApplicationRecord
   def self.find_for_github_oauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create! do |user|
       # 名前を取得するときはこのように書く（今回はUserモデルにname属性がないのでエラーなる） 
-      # user.name = auth.info.name
+      user.name = auth.info.name
       user.email = auth.info.email
       # 任意の20文字の文字列を作成する
       user.password = Devise.friendly_token[0, 20]
@@ -25,18 +25,18 @@ class User < ApplicationRecord
   def self.create_unique_string
     SecureRandom.uuid
   end
-  
-  def self.find_or_create_from_auth_hash!(auth_hash)
-    provider = auth_hash[:provider]
-    uid = auth_hash[:uid]
-    nickname = auth_hash[:info][:nickname]
-    image_url = auth_hash[:info][:image]
 
-    User.find_or_create_by!(provider: provider, uid: uid) do |user|
-      user.name = nickname
-      user.image_url = image_url
-    end
-  end
+  # def self.find_or_create_from_auth_hash!(auth_hash)
+  #   provider = auth_hash[:provider]
+  #   uid = auth_hash[:uid]
+  #   nickname = auth_hash[:info][:nickname]
+  #   image_url = auth_hash[:info][:image]
+
+  #   User.find_or_create_by!(provider: provider, uid: uid) do |user|
+  #     user.name = nickname
+  #     user.image_url = image_url
+  #   end
+  # end
 
   
 

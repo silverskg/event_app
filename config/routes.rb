@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   
   
-  post "/auth/:provider/callback" => "sessions#create"
+  # get "/auth/:provider/callback" => "sessions#create"
   resource :retirements, only: %i[new create]
 
   resources :events do

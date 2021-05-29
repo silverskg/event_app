@@ -8,7 +8,6 @@ class EventsController < ApplicationController
   end
 
   def new
-    binding.pry
     @event = current_user.created_events.build
   end
 
