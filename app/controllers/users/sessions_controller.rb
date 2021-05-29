@@ -1,4 +1,4 @@
-class SessionsController < ApplicationController
+class Users::SessionsController < Devise::SessionsController
   skip_before_action :authenticate, only: :create
   def create
     binding.pry
@@ -11,5 +11,6 @@ class SessionsController < ApplicationController
     reset_session
     redirect_to root_path, notice: "ログアウトしました"
   end
+
 
 end
