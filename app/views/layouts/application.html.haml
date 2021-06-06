@@ -22,6 +22,8 @@
           - else
             %li.nav-item
               = link_to "ログイン", new_user_session_path, class: "nav-link"
+            %li.nav-item
+              = link_to "gitログイン", "/auth/github", class: "nav-link", method: :post
               
     .container
       - if flash.notice

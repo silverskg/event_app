@@ -1,4 +1,5 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  # binding.pry
   def github
     # request.env["omniauth.auth"]にGitHubから送られてきたデータが入っている
     # binding.pryで確認してみましょう

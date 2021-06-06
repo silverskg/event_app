@@ -19,6 +19,8 @@ gem 'omniauth-rails_csrf_protection', '~> 0.1.2'
 gem 'devise'
 gem 'devise-i18n'
 
+gem 'dotenv-rails'
+
 gem 'rails-i18n', '~> 6.0.0'
 
 group :development, :test do
