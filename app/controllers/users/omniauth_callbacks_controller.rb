@@ -1,9 +1,6 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  # binding.pry
+  
   def github
-    # request.env["omniauth.auth"]にGitHubから送られてきたデータが入っている
-    # binding.pryで確認してみましょう
-    binding.pry
     @user = User.find_for_github_oauth(request.env["omniauth.auth"])
 
     if @user.persisted? # データベースに保存されていればログイン成功
@@ -14,4 +11,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       redirect_to new_user_registration_url
     end
   end
+
+  
 end
