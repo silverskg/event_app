@@ -18,7 +18,7 @@
       .card-body
         - if @event.owner
           = link_to("https://github.com/#{@event.owner.name}", class: "card-link") do
-            -# = image_tag @event.owner.image_url, width: 50, height: 50
+            = image_tag @event.owner.image_url, width: 50, height: 50
             = "@#{@event.owner.name}"
         - else
           退会したユーザー
