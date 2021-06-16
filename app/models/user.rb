@@ -5,14 +5,14 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: [:github]
+         :omniauthable, omniauth_providers: %i[github line]
   before_destroy :check_all_events_finished
 
   has_many :created_events, class_name: "Event", foreign_key: "owner_id", dependent: :nullify
   has_many :tickets, dependent: :nullify
   has_many :participathing_events, through: :tickets, source: :event
  
-  def self.find_for_github_oauth(auth)
+  def self.find_for_sns_oauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create! do |user|
       # 名前を取得するときはこのように書く（今回はUserモデルにname属性がないのでエラーなる） 
       user.name = auth.info.name
