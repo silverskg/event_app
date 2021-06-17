@@ -13,6 +13,18 @@ import "bootstrap"
 import "bootstrap/scss/bootstrap.scss"
 window.jQuery = window.$ = require('jquery')
 
+// Bootstrap
+require("bootstrap/dist/js/bootstrap")
+
+// Chart.js
+require('chart.js')
+
+// カレンダー
+require('flatpickr')
+require('flatpickr/dist/l10n/ja')
+// カレンダーの色を変更
+require("flatpickr/dist/themes/material_blue.css")
+
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)

@@ -13,11 +13,13 @@
   .form-group
     = f.label :start_at
     %div
-      = f.datetime_select :start_at, start_year: now.year, end_year: now.year + 1
-  .form-group
-    = f.label :end_at
-    %div
-      = f.datetime_select :end_at, start_year: now.year, end_year: now.year + 1
+      %input#date-form{:name => "calendar[date]", :readonly => "readonly", :type => "text", :placeholder => "日付"}/
+      = f.time_field :start_at, value:Time.now.strftime("%H:%m")
+      = f.time_field :end_at, value:Time.current.strftime("%H:%M")
+  -# .form-group
+  -#   = f.label :end_at
+  -#   %div
+  -#     = f.time_field :end_at, start_year: now.year, end_year: now.year + 1
   .form-group
     = f.label :content
     = f.text_area :content, class: "form-control", row: 10
