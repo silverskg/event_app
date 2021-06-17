@@ -11,6 +11,8 @@ gem 'webpacker', '~> 4.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
+# ログイン関連ページにBootstrapを適用するGem
+gem 'devise-bootstrap-views', '~> 1.0'
 gem 'hamlit-rails', '~> 0.2.3'
 gem 'html2haml', '~> 2.2.0'
 gem 'omniauth', '~> 1.9.1'
