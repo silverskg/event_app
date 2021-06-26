@@ -1,0 +1,10 @@
+<li class="sns_login_btn" id="line_login">
+  <%= link_to (user_line_omniauth_authorize_path), method: :post  do %>
+    <p class="sns_btn_inner">
+      <span class="line-img">
+        <%= image_tag 'line_64.png'%>
+      </span>
+      <span class="sns_msg">LINE</span>
+    </p>
+  <% end %>
+</li>
