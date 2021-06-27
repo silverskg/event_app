@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
-  skip_before_action :authenticate, only: :show
-  before_action :authenticate_user!, except: :show
+  skip_before_action :authenticate, only: :show, raise: false
+  # before_action :authenticate_user!, except: :show
   def show
     @event = Event.find(params[:id])
     @ticket = current_user && current_user.tickets.find_by(event: @event)
@@ -46,5 +46,9 @@ class EventsController < ApplicationController
     params.require(:event).permit(
       :name, :place, :content, :start_at, :end_at
     )
+  end
+
+  def authenticate
+    super 
   end
 end

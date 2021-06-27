@@ -9,6 +9,11 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:email])
   end
 
+  def authenticate
+    return if logged_in?
+    redirect_to new_user_session_path, alert: "ログインしてください"
+  end
+  
   private
 
   def logged_in?
@@ -20,8 +25,5 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id])
   end
 
-  def authenticate
-    return if logged_in?
-    redirect_to new_user_session_path, alert: "ログインしてください"
-  end
+  
 end
