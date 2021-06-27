@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
-  # skip_before_action :authenticate
+  skip_before_action :authenticate_user!
 
   def index
     @events = Event.order(:start_at)

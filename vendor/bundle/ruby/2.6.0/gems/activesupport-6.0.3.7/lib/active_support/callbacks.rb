@@ -704,9 +704,9 @@ module ActiveSupport
             filters.each do |filter|
               callback = chain.find { |c| c.matches?(type, filter) }
 
-              # if !callback && options[:raise]
-              #   raise ArgumentError, "#{type.to_s.capitalize} #{name} callback #{filter.inspect} has not been defined"
-              # end
+              if !callback && options[:raise]
+                raise ArgumentError, "#{type.to_s.capitalize} #{name} callback #{filter.inspect} has not been defined"
+              end
 
               if callback && (options.key?(:if) || options.key?(:unless))
                 new_callback = callback.merge_conditional_options(chain, if_option: options[:if], unless_option: options[:unless])
