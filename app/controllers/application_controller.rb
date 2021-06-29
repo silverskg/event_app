@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
     return if logged_in?
     redirect_to new_user_session_path, alert: "ログインしてください"
   end
-  
+
   private
 
   def logged_in?

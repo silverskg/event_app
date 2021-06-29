@@ -1,5 +1,5 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-  skip_before_action :authenticate, only: :create
+  # skip_before_action :authenticate, only: :create
   def build_resource(hash = {})
     
     # 自作したメソッドを使いuidを必ず埋める
