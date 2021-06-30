@@ -2,15 +2,15 @@
 .row
   .col-8
     .card.md-2
-      %h5.card-header イベント内容
+      %h5.card-header 仕事内容
       .card-body
         %p.card-text= @event.content
     .card.md-2
-      %h5.card-header 開催時間
+      %h5.card-header 開始時刻
       .card-body
         %p.card-text= "#{l(@event.start_at, format: :long)} - #{l(@event.end_at, format: :long)}"
     .card.md-2
-      %h5.card-header 開催場所
+      %h5.card-header 場所
       .card-body
         %p.card-text= @event.place
     .card.md-2
