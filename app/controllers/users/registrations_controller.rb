@@ -1,11 +1,11 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # skip_before_action :authenticate, only: :create
+  
   def build_resource(hash = {})
-    
     # 自作したメソッドを使いuidを必ず埋める
     hash[:provider] = User.create_unique_string
     hash[:uid] = User.create_unique_string
-    hash[:name] = User.create_unique_string
+    hash[:name] = User.name
     hash[:image_url] = User.create_unique_string
     super
   end

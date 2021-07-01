@@ -9,20 +9,21 @@
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'calendar', 'data-turbolinks-track': 'reload' if controller_name == 'events'
   %body
-    %header.navbar.navbar-expand-sm.navbar-light.bg-light
-      .container
-        = link_to "EventsApp", root_path, class: "navbar-brand"
-        %ui.navbar-nav
-          %li.nav-item
-            = link_to "イベントを作る", new_event_path, class: "nav-link"
-          - if  user_signed_in?
-            %li.nav-item
-              = link_to "退会する",  new_retirements_path, class: "nav-link"
-            %li.nav-item
-              = link_to "アカウント編集", edit_user_registration_path, class: "nav-link"
-          - else
-            %li.nav-item
-              = link_to "ログイン", new_user_session_path, class: "nav-link"
+    = render 'shared/header'
+    -# %header.navbar.navbar-expand-sm.navbar-light.bg-light
+    -#   .container
+    -#     = link_to "EventsApp", root_path, class: "navbar-brand"
+    -#     %ui.navbar-nav
+    -#       %li.nav-item
+    -#         = link_to "イベントを作る", new_event_path, class: "nav-link"
+    -#       - if  user_signed_in?
+    -#         %li.nav-item
+    -#           = link_to "退会する",  new_retirements_path, class: "nav-link"
+    -#         %li.nav-item
+    -#           = link_to "アカウント編集", edit_user_registration_path, class: "nav-link"
+    -#       - else
+    -#         %li.nav-item
+    -#           = link_to "ログイン", new_user_session_path, class: "nav-link"
               
     .event-container
       - if flash.notice
