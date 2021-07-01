@@ -17,9 +17,9 @@
       %h5.card-header 主催者
       .card-body
         - if @event.owner
-          = link_to("https://github.com/#{@event.owner.name}", class: "card-link") do
-            = image_tag @event.owner.image_url, width: 50, height: 50
-            = "@#{@event.owner.name}"
+          -# = link_to("https://github.com/#{@event.owner.name}", class: "card-link") do
+          = image_tag @event.owner.image_url, width: 50, height: 50
+          = "#{@event.owner.name}"
         - else
           退会したユーザー
   .col-4
@@ -54,9 +54,9 @@
         - @tickets.each do |ticket|
           %li.list-group-item
             - if ticket.user
-              = link_to(url_for_github(ticket.user), class: "card-link") do 
-                -# = image_tag ticket.user.image_url, width: 20, height: 20
-                = "@#{ticket.user.name}"
+              -# = link_to(url_for_github(ticket.user), class: "card-link") do 
+              = image_tag ticket.user.image_url, width: 20, height: 20
+              = "#{ticket.user.name}"
               = ticket.comment
             - else 
               退会したユーザー
