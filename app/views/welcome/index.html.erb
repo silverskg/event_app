@@ -1,0 +1,13 @@
+<h1>スケジュール一覧</h1>
+<ul class="list-group">
+  <%= month_calendar do |date| %>
+    <%= date.day %>
+  <% end %>
+  <% @events.each do |event| %>
+  <div>
+    <%= link_to event.name, event %>
+  </div>
+  <% end %>
+  <%= link_to '予定を書く', new_event_path %>
+</ul>
+<!-- /.list-group -->
