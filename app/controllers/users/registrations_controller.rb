@@ -1,6 +1,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # skip_before_action :authenticate, only: :create
   
+
   def build_resource(hash = {})
     # 自作したメソッドを使いuidを必ず埋める
     # hash[:provider] = User.create_unique_string
@@ -8,11 +9,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
     # hash[:name] = User.name
     # hash[:image_url] = User.create_unique_string
     super
+    
   end
 
   protected
     def update_resource(resource, params)
-      
       return super if params["password"]&.present?
       # 現在のパスワードなしでアカウントの更新をする
       resource.update_without_password(params.except("current_password"))

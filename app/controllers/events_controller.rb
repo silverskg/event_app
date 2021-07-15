@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  # before_action :authenticate_user!
   skip_before_action :authenticate, only: :show, raise: false
   # before_action :authenticate_user!, except: :show
   def show

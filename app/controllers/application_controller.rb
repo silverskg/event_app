@@ -7,9 +7,9 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:email])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
     devise_parameter_sanitizer.permit(:account_update, keys: [:email])
   end
-
   # def authenticate
   #   return if logged_in?
   #   redirect_to new_user_session_path, alert: "ログインしてください"
