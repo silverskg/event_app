@@ -14,7 +14,9 @@
 </head>
 <body>
   <header>
+  <% unless devise_page %>
     <%= render 'shared/header' %>
+  <% end %>
   </header>
 
   <main>

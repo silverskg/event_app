@@ -1,6 +1,6 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # skip_before_action :authenticate, only: :create
-  
+  protect_from_forgery
 
   def build_resource(hash = {})
     # 自作したメソッドを使いuidを必ず埋める
@@ -12,6 +12,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     
   end
 
+  
   protected
     def update_resource(resource, params)
       return super if params["password"]&.present?
