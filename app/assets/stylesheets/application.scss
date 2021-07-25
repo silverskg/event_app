@@ -25,6 +25,8 @@
   padding: 1rem;
 }
 
+
+// snsレイアウト
 .line-img{
   margin-right: 4px;
 }
@@ -35,9 +37,12 @@
 }
 
 #line_login{
-
+  line-height: 2.5;
   color: #ffffff;
+  text-align: center;
+  padding-top: 4px;
 }
+
 
 
 #line_login .sns_btn_inner{
@@ -50,6 +55,83 @@
   letter-spacing: 1px;
   line-height: 34px;
 }
+
+.sns-login {
+  border-style: none;
+  width: 100%;
+  height: 60px;
+  background-color: #00B900;
+  border-color: #00B900;
+  border-radius: 5px;
+  border: 1px #116d11;
+}
+
+.login-line{
+  height: 60px;
+  color: #ffffff;
+}
+
+.git-login {
+  border-style: none;
+  width: 100%;
+  height: 30px;
+  background-color: #353a40;
+  border-color: #353a40;
+  border-radius: 5px;
+  border: 1px #116d11;
+}
+
+#git_login{
+  color: #ffffff;
+  text-align: center;
+  padding-top: 4px;
+}
+
+.login-git{
+  height: 30px;
+  color: #fff;
+}
+
+
+.sns-login :hover{
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #1eac1e;
+}
+
+.git-login :hover{
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: rgba(7, 7, 7, 0.733);
+}
+
+// 
+
+.center-line{
+  position: relative;
+  text-align: center;
+  height: 1.5rem;
+  margin: 1rem 0;
+}
+
+.center-line:before{
+  content: '';
+  display: block;
+  height: 1px;
+  width: 100%;
+  background-color: rgba(0,0,0,0.1);
+  position: absolute;
+  left: 0;
+  top: 50%;
+}
+
+.center-label{
+  display: inline-block;
+  background-color: #fff;
+  padding: 0 1rem;
+  position: relative;
+}
+
 
 .navber {
   position: relative;

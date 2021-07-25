@@ -2,6 +2,18 @@
   <div class="box-inner">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <h1>ログイン</h1>
+      <div class="sns-login-box">
+        <%= render "devise/shared/line"%>
+      </div>
+      <!-- /.sns-login-box -->
+      <div class="center-line"><label class="center-label">または</label></div>
+      <!-- /.center-line -->
+      <div class="sns-login-box">
+        <%= render "devise/shared/github"%>
+      </div>
+      <!-- /.sns-login-box -->
+      <div class="center-line"><label class="center-label">専用のアカウントをお持ちの方は</label></div>
+      <!-- /.center-line -->
       <div class="box-email">
         <%= f.label :email, "Eメール" %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -20,7 +32,7 @@
       <div class="box-login">
         <%= f.submit "ログイン" %>
         <div class="legal-text">
-          続行することで、Hogezonの
+          続行することで、スケジュール管理アプリの
           <%= link_to "利用規約", "#" %>
           および
           <%= link_to "プライバシー規約", "#" %>
@@ -36,8 +48,8 @@
     <% end %>
 
     <div class="box-newusr">
-      <p><span>------------</span> Hogezonの新しいお客様ですか？ <span>------------</span></p>
-      <%= link_to "Hogezonアカウントを作成", new_user_registration_path %>
+      <p><span>------------</span> 専用にアカウントを作成しますか？ <span>------------</span></p>
+      <%= link_to "アカウントを作成", new_user_registration_path %>
     </div>
   </div>
 </div>

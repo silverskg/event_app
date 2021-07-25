@@ -1,10 +1,9 @@
-<li class="sns_login_btn" id="line_login">
-  <%= link_to (user_line_omniauth_authorize_path), method: :post  do %>
-    <p class="sns_btn_inner">
-      <span class="line-img">
-        <%= image_tag 'line_64.png'%>
-      </span>
-      <span class="sns_msg"></span>
-    </p>
-  <% end %>
-</li>
+<div class="sns-login">
+  <div class="login-line">
+    <%= link_to (user_line_omniauth_authorize_path), method: :post do %>
+      <h5 id="line_login">LINEアカウントでログイン</h5>
+    <% end %>
+  </div>
+  <!-- /.login-line -->
+</div>
+<!-- /.sns-login -->

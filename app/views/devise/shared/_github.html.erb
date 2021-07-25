@@ -1,10 +1,9 @@
-<li class="sns_login_btn" id="line_login">
-  <%= link_to (user_github_omniauth_authorize_path), method: :post  do %>
-    <p class="sns_btn_inner">
-      <span class="line-img">
-        <%= image_tag 'github_image.png'%>
-      </span>
-      <span class="sns_msg"></span>
-    </p>
-  <% end %>
-</li>
+<div class="git-login">
+  <div class="login-git">
+    <%= link_to (user_github_omniauth_authorize_path), method: :post do %>
+      <h5 id="git_login">GitHubアカウントでログイン</h5>
+    <% end %>
+  </div>
+  <!-- /.login-line -->
+</div>
+<!-- /.sns-login -->
