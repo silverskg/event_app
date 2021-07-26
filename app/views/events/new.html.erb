@@ -1,6 +1,6 @@
+<%= render 'layouts/error_messages', model: @event %>
 <%= javascript_pack_tag "calendar"%>
-<%= form_with(model: @event, class: "form-horizontal") do |f| %>
-  <div id="errors">
+<%= form_with model: @event, class: "form-horizontal", local: true do |f| %>
   <div class="form-group">
     <%= f.label :name %>
     <%= f.text_field :name, class: "form-control" %>
@@ -10,17 +10,16 @@
     <%= f.text_field :place, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :start_day %>
+    <%= f.label :start_at %>
     <div>
-      <input id="date-form" name="calendar[date]" readonly="readonly" type="text"  placeholder="日付">
-      <%= f.time_field :start_at, value:Time.now.strftime("%H:%m") %>
-      <%= f.time_field :end_at, value:Time.current.strftime("%H:%M") %>
+      <input id="date-form" name="calendar[date]" readonly="readonly" type="text" date.today>
+      <%= f.time_field :start_at, value:"08:00"%>
+      <%= f.time_field :end_at, value:"17:30" %>
     </div>
   </div> 
   <div class="form-group">
     <%= f.label :content %>
     <%= f.text_area :content, class: "form-control", row: 10 %>
-  </div>
   </div>
   <%= f.submit class: "btn btn-primary" %>
 <% end %>

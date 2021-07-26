@@ -21,6 +21,8 @@ class EventsController < ApplicationController
     @event.end_at = Time.zone.local(d.year, d.month, d.day, e.hour, e.min)
     if @event.save
       redirect_to @event, notice: "作成しました"
+    else
+      render 'new'
     end
   end
 

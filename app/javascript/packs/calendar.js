@@ -13,9 +13,11 @@ document.addEventListener('turbolinks:load', () => {
         // スマートフォンでもカレンダーに「flatpickr」を使用
         disableMobile: true,
         // 1ヶ月前から本日まで選択可
-        minDate: A_MONTH_AGO,
+        minDate: TODAY,
         maxDate: A_MONTH_AHEAD,
         // 選択できない日付
-        disable: DISABLE_DATES
+        disable: DISABLE_DATES,
+        dateFormat: 'Y/m/d (D)',
+        defaultDate: TODAY
     })
 });

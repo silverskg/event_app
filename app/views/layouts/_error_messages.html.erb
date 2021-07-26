@@ -1,0 +1,11 @@
+<% if @event.errors.any? %>
+  <div class="alert">
+    <ul>
+      <% @event.errors.full_messages.each do |message|  %>
+        <li>
+          <%= message %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
