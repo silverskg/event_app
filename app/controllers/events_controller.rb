@@ -22,6 +22,7 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to @event, notice: "作成しました"
     else
+      flash.now[:alert] = "未入力欄があります"
       render 'new'
     end
   end
