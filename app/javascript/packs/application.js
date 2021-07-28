@@ -16,12 +16,14 @@ window.jQuery = window.$ = require('jquery')
 // Bootstrap
 require("bootstrap/dist/js/bootstrap")
 
-// Chart.js
-require('chart.js')
-
 // カレンダー
 require('flatpickr')
 require('flatpickr/dist/l10n/ja')
+
+// Chart.js
+require('chart.js')
+
+
 // カレンダーの色を変更
 require("flatpickr/dist/themes/material_blue.css")
 

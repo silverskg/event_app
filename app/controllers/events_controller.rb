@@ -2,6 +2,8 @@ class EventsController < ApplicationController
   # before_action :authenticate_user!
   skip_before_action :authenticate, only: :show, raise: false
   # before_action :authenticate_user!, except: :show
+
+
   def show
     @event = Event.find(params[:id])
     @ticket = current_user && current_user.tickets.find_by(event: @event)
@@ -23,7 +25,7 @@ class EventsController < ApplicationController
       redirect_to @event, notice: "作成しました"
     else
       flash.now[:alert] = "未入力欄があります"
-      render 'new'
+      render :new
     end
   end
 

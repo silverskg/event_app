@@ -149,5 +149,19 @@
   background:#FFEBE8;
   text-align: center;
   border:2px solid #990000;
-  padding:12px; font-weight:850;
+  padding:12px; 
+  font-weight:850;
+}
+
+/* -----------------------------
+  エラーメッセージ
+-------------------------------*/
+.field_with_errors {
+  display: contents;
+  .form-control{
+  border: 1px solid red;
+  }
+  .notification-contents-area-title{
+  border: 1px solid red;
+  }
 }

@@ -1,9 +1,6 @@
 class WelcomeController < ApplicationController
   # skip_before_action :authenticate_user!
   # before_action :authenticate
-
-
-
   def index
     # @events = Event.all
     @events = Event.order(:start_at)
