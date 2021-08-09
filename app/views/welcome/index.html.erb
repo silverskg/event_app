@@ -2,7 +2,7 @@
 <ul class="list-group">
   <%= month_calendar events: @events do |date, events| %>
     <%= date.day %>
-    <% @events.each do |event| %>
+    <% events.each do |event| %>
     <div>
       <%= link_to event.name, event %>
     </div>

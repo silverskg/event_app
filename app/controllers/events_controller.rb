@@ -17,10 +17,10 @@ class EventsController < ApplicationController
   def create
     @event = current_user.created_events.build(event_params)
     d = params[:calendar][:date].to_date
-    s = @event.start_at
-    e = @event.end_at
-    @event.start_at = Time.zone.local(d.year, d.month, d.day, s.hour, s.min)
-    @event.end_at = Time.zone.local(d.year, d.month, d.day, e.hour, e.min)
+    s = @event.start_time
+    e = @event.end_time
+    @event.start_time = Time.zone.local(d.year, d.month, d.day, s.hour, s.min)
+    @event.end_time = Time.zone.local(d.year, d.month, d.day, e.hour, e.min)
     if @event.save
       redirect_to @event, notice: "作成しました"
     else
@@ -50,7 +50,7 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(
-      :name, :place, :content, :start_at, :end_at
+      :name, :place, :content, :start_time, :end_time
     )
   end
 
