@@ -18,7 +18,9 @@
       <!-- /.card-header -->
       <div class="card-body">
         <p class="card-text">
-          <%= "#{l(@event.start_time, format: :long)} - #{l(@event.end_time, format: :long)}" %>
+        <%= l @event.start_time, format: :day %>
+        <br>
+          <%= "#{l(@event.start_time, format: :middle)} - #{l(@event.end_time, format: :middle)}" %>
         </p>
       </div>
       <!-- /.card-body -->
