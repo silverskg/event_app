@@ -1,4 +1,4 @@
-<h1>スケジュール一覧</h1>
+<h1>アルバイト一覧</h1>
 <ul class="list-group">
   <%= month_calendar events: @events do |date, events| %>
     <%= date.day %>
@@ -8,6 +8,6 @@
     </div>
     <% end %>
   <% end %>
-  <%= link_to '予定を書く', new_event_path %>
+  <%= link_to '予定を書く', new_event_path, class: "btn btn-secondary btn-lg" %>
 </ul>
 <!-- /.list-group -->

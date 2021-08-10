@@ -1,0 +1,4 @@
+<%= javascript_pack_tag "calendar"%>
+<%= form_with model: @event, html: { class: "notification-contents admin-contents-area" } do |form| %>
+    <%= render :partial => 'form', :locals => {:form => form} %>
+<% end %>

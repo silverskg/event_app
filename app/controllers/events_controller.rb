@@ -15,10 +15,12 @@ class EventsController < ApplicationController
   end
 
   def create
+    binding.pry
     @event = current_user.created_events.build(event_params)
-    d = params[:calendar][:date].to_date
+    d = @event.date.to_date
     s = @event.start_time
     e = @event.end_time
+    @event.date = Time.zone.local(d.year, d.month, d.day)
     @event.start_time = Time.zone.local(d.year, d.month, d.day, s.hour, s.min)
     @event.end_time = Time.zone.local(d.year, d.month, d.day, e.hour, e.min)
     if @event.save
@@ -31,11 +33,17 @@ class EventsController < ApplicationController
 
   def edit
     @event = current_user.created_events.find(params[:id])
+    
+    # @event = Event.find(params[:id])params[:calendar][:date].to_date
+    
+    # @event = current_user.created_events.find(params[:id])
   end
 
   def update
+    # @event = Event.find(params[:id])
     @event = current_user.created_events.find(params[:id])
     if @event.update(event_params)
+      # binding.pry
       redirect_to @event, notice: "更新しました"
     end
   end
@@ -50,7 +58,7 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(
-      :name, :place, :content, :start_time, :end_time
+      :name, :place, :content, :start_time, :end_time, :date
     )
   end
 

@@ -1,0 +1,42 @@
+.calendar-heading {
+  display: flex;
+  border: 1px solid #dee2e6 !important;
+}
+
+.calendar-title{
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 30px;
+}
+
+.btn-next, .btn-prev {
+  margin-top: 4px;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.wday-6 {
+  background-color: #CCF9FF;
+}
+
+.wday-0 {
+  background-color: #FFD1D1;
+}
+
+.prev-month, .next-month {
+  background-color: #fff;
+  color: #c1cbce;
+}
+
+span {
+  font-family: "Barlow", sans-serif;
+}
+
+.has-events{
+  background-color: #72db91;
+}
+
+.weekday {
+  background-color: #04a735;
+  color: #fff;
+}
