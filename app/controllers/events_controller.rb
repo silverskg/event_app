@@ -15,7 +15,6 @@ class EventsController < ApplicationController
   end
 
   def create
-    binding.pry
     @event = current_user.created_events.build(event_params)
     d = @event.date.to_date
     s = @event.start_time
