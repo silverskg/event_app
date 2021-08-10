@@ -17,7 +17,7 @@ document.addEventListener('turbolinks:load', () => {
         maxDate: A_MONTH_AHEAD,
         // 選択できない日付
         disable: DISABLE_DATES,
-        dateFormat: 'Y/m/d (D)',
-        defaultDate: TODAY
+        dateFormat: 'Y/m/d (D)'
+        // defaultDate: TODAY
     })
 });
