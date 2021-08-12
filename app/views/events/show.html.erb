@@ -57,10 +57,9 @@
     <% if @event.created_by?(current_user) %>
       <%= link_to "編集", edit_event_path(@event), class: "btn btn-info btn-lg btn-block" %>
       <%= link_to "削除", event_path(@event), class: "btn btn-info btn-lg btn-block", method: :delete, date: { confirm: "本当に削除しますか"} %>
-    <% elsif @ticket.present? %>
-      <%= link_to "キャンセル", event_ticket_path(@event), method: :delete, class: "btn btn-warning btn-lg btn-block" %>
-    <% elsif user_signed_in? %>
-      <button class="btn btn-primary btn-lg btn-block"{ "data-toggle": "modal", "data-target": "#createTicket" } >
+    <% end %>
+    <% if user_signed_in? == @ticket.nil? %>
+      <button class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#createTicket">
         参加
       </button>
       <div class="modal fade" id="createTicket">
@@ -68,8 +67,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h4 class="modal-title" id="dialogHeader">参加コメント</h4>
-              <button class="close">
-              { type: "button", "data-dismiss": "modal" } &times;
+              <button class="close" type="button" data-dismiss="modal" &times;>
               </button>
               <!-- /.close -->
               <!-- /.modal-title -->
@@ -82,10 +80,9 @@
               </div>
               <!-- /.modal-body -->
               <div class="modal-footer">
-                <button class="btn btn-default">
-                { type: "button", "data-dismiss": "modal" }
+                <button class="btn btn-default" type="button" data-dismiss="modal">
+                  キャンセル
                 </button>
-                キャンセル
                 <%= f.button "送信", class: "btn btn-primary" %>
               </div>
               <!-- /.modal-footer -->
@@ -97,7 +94,7 @@
       </div>
       <!-- /.modal fade -->
     <% else %>
-      <%= link_to "参加する", new_event_ticket_path(@event), class: "btn btn-primary btn-lg btn-block" %>
+      <%= link_to "キャンセル", event_ticket_path(@event), method: :delete, class: "btn btn-warning btn-lg btn-block" %>
     <% end %>
     <hr>
     <div class="card md-2">
