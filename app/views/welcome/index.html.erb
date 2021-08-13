@@ -4,7 +4,7 @@
     <%= date.day %>
     <% events.each do |event| %>
     <div>
-      <%= link_to event.name, event %>
+      <%= link_to event.name.truncate(5), event %>
     </div>
     <% end %>
   <% end %>
