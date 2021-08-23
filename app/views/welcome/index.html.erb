@@ -14,11 +14,23 @@
 
 
 <h1>All users</h1>
-
+　<%= will_paginate @users, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
 <ul class="users">
-  <% @users.each do |user| %>
+  <% @users.each_with_index do |user| %>
     <li>
       <%= link_to user.name, user %>
     </li>
   <% end %>
 </ul>
+
+
+<tbody class="text-center">
+  <%= will_paginate @users, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.name %></td>
+      </tr>
+    <% end %>
+</tbody>
+<%= will_paginate @users, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
