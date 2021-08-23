@@ -4,6 +4,7 @@ class WelcomeController < ApplicationController
   def index
     # @events = Event.all
     @events = Event.order(:start_time)
+    @users = User.all
     # @events = Event.where("start_at < ?", Time.zone.now).order(:start_at)
   end
 end

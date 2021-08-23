@@ -80,6 +80,8 @@ GEM
       railties (>= 3.2)
     erubi (1.10.0)
     erubis (2.7.0)
+    faker (2.14.0)
+      i18n (>= 1.6, < 2)
     faraday (1.4.2)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
@@ -279,6 +281,7 @@ DEPENDENCIES
   devise-bootstrap-views (~> 1.0)
   devise-i18n
   dotenv-rails
+  faker
   hamlit-rails (~> 0.2.3)
   html2haml (~> 2.2.0)
   jbuilder (~> 2.7)
