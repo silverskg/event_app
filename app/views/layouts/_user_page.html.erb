@@ -1,0 +1,28 @@
+<h5>ログインユーザー</h5>
+<div class="event-user-container">
+  <table>
+    <thead class="text-center">
+    <tbody class="text-center">
+        <tr>
+          <th>番号</th>
+          <th>名前</th>
+        </tr>
+        <% @users.each do |user| %> 
+          <tr>
+            <td>
+              <%= user.id %>
+            </td>
+            <td>
+              <% if current_user %>
+                <%= link_to user.name, user %>
+              <% else %>
+                <%= user.id %>
+              <% end %> 
+            </td>
+          </tr>
+        <% end %>
+    </tbody>
+    </thead>
+  </table>
+</div>
+<!-- /.event-user-container -->

@@ -80,6 +80,8 @@ GEM
       railties (>= 3.2)
     erubi (1.10.0)
     erubis (2.7.0)
+    faker (2.14.0)
+      i18n (>= 1.6, < 2)
     faraday (1.4.2)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
@@ -266,6 +268,9 @@ GEM
     websocket-driver (0.7.3)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    will_paginate (3.3.1)
+    will_paginate-bootstrap4 (0.2.2)
+      will_paginate (~> 3.0, >= 3.0.0)
     zeitwerk (2.4.2)
 
 PLATFORMS
@@ -279,6 +284,7 @@ DEPENDENCIES
   devise-bootstrap-views (~> 1.0)
   devise-i18n
   dotenv-rails
+  faker
   hamlit-rails (~> 0.2.3)
   html2haml (~> 2.2.0)
   jbuilder (~> 2.7)
@@ -301,6 +307,8 @@ DEPENDENCIES
   tzinfo-data
   web-console (>= 3.3.0)
   webpacker (~> 4.0)
+  will_paginate
+  will_paginate-bootstrap4
 
 RUBY VERSION
    ruby 2.6.6p146
