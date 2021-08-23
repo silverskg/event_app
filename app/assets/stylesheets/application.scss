@@ -20,7 +20,7 @@
 
 
 // 全体
-.event-container {
+.main-container {
   @extend .container-fluid;
   max-width: 768px;
   padding: 1rem;
@@ -143,6 +143,10 @@
     padding: 0.5rem 1rem;
 }
 
+.pagination {
+  justify-content: center;
+  padding: 30px;
+}
 
 // エラ〜メッセージ
 .alert {
