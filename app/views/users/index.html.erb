@@ -1,3 +1,4 @@
+<%= will_paginate @users, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
 <% provide(:title, 'All users') %>
 <h1>All users</h1>
 
@@ -8,3 +9,5 @@
     </li>
   <% end %>
 </ul>
+
+ <%= will_paginate @users, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
