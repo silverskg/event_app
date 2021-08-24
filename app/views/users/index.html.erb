@@ -1,13 +1,77 @@
-<%= will_paginate @users, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
-<% provide(:title, 'All users') %>
-<h1>All users</h1>
-
-<ul class="users">
-  <% @users.each do |user| %>
-    <li>
-      <%= link_to user.name, user %>
-    </li>
-  <% end %>
-</ul>
-
- <%= will_paginate @users, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+<div class="container-fluid py-5 mw-md">
+  <div class="contents-title text-center">
+    <h4 class="title">やる気あるユーザー</h4>
+    <div class="row">
+      <div class="col-sm-9">
+      <% @users.each do |user| %>
+        <div class="container">
+          <div>
+            <div class="user_card" style="width:100%;">
+              <div class="card-body">
+                <div class="row justify-content-between">
+                  <% if user.image_url == "" %>
+                    <%= image_tag "github_image.png", width: 70, height: 60, class: "image_icons" %>
+                  <% else %>
+                    <%= image_tag user.image_url, width: 70, height: 60, class: "image_icons" %>
+                  <% end %>
+                  <h5 class="card-name">
+                    <%= user.name%>
+                  </h5>
+                </div>
+                <!-- /.row justify-content-between -->
+                <a href="users/{user.id}" class="link">
+                  <div class="row justify-content-start">
+                    <p>今月のアルバイト数：</p>
+                    <p>０</p>
+                  </div>
+                  <!-- /.row justify-content-start -->
+                  <div class="row justify-content-start">
+                    <p>現在のアルバイト日当単価：</p>
+                    <p>00000円</p>
+                  </div>
+                  <!-- /.row justify-content-start -->
+                </a>
+                <!-- /.link -->
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          
+        </div>
+        <!-- /.container -->
+        <% end %>
+      </div>
+      <!-- /.col-sm-9 -->
+      <div class="col-sm-3">
+        <p><i class="material-icons"></i>助っ人マスター</p>
+        <% @users.each.with_index(1) do |user, i| %>
+        <p>
+          <% case i when 1 %>
+            <i class="fas fa-crown" style='color: gold;'></i>
+          <% when 2 %>
+            <i class="fas fa-crown" style='color: silver;'></i>
+          <% when 3 %>
+            <i class="fas fa-crown" style='color: orange;'></i>
+          <% end %>
+          第<%= i %>位
+        </p>
+        <p class="rank_status">
+          Lv.<%= user[:id] %><br>
+          <% if user.image_url == "" %>
+            <%= image_tag "github_image.png", width: 70, height: 60, class: "image_icons" %>
+          <% else %>
+            <%= image_tag user.image_url, width: 70, height: 60, class: "image_icons" %>
+          <% end %>
+          <%= link_to user.name, user_path(user[:id]) %>
+        </p>
+        <% end %>
+      </div>
+      <!-- /.col-sm-3 -->
+    <%= will_paginate @users, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- contents-title text-center/ -->
+</div>
+<!-- / -->
