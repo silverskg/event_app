@@ -43,7 +43,30 @@
         <% end %>
       </div>
       <!-- /.col-sm-9 -->
-      <div class="col-sm-3"></div>
+      <div class="col-sm-3">
+        <p><i class="material-icons"></i>助っ人マスター</p>
+        <% @users.each.with_index(1) do |user, i| %>
+        <p>
+          <% case i when 1 %>
+            <i class="fas fa-crown" style='color: gold;'></i>
+          <% when 2 %>
+            <i class="fas fa-crown" style='color: silver;'></i>
+          <% when 3 %>
+            <i class="fas fa-crown" style='color: orange;'></i>
+          <% end %>
+          第<%= i %>位
+        </p>
+        <p class="rank_status">
+          Lv.<%= user[:id] %><br>
+          <% if user.image_url == "" %>
+            <%= image_tag "github_image.png", width: 70, height: 60, class: "image_icons" %>
+          <% else %>
+            <%= image_tag user.image_url, width: 70, height: 60, class: "image_icons" %>
+          <% end %>
+          <%= link_to user.name, user_path(user[:id]) %>
+        </p>
+        <% end %>
+      </div>
       <!-- /.col-sm-3 -->
     <%= will_paginate @users, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
     </div>
