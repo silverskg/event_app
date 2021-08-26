@@ -20,13 +20,22 @@
 
 
 // 全体
-.main-container {
+.container-fluid {
   @extend .container-fluid;
   max-width: 768px;
   padding: 1rem;
 }
 
 
+
+// ヘッダー
+header {
+  box-shadow: 0 0 5px #2f21f1;
+}
+.nav-item.active {
+  margin-top: 5px;
+  padding-left: 30px;
+}
 // snsレイアウト
 .line-img{
   margin-right: 4px;
