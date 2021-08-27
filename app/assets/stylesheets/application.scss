@@ -26,12 +26,16 @@
   padding: 1rem;
 }
 
-
+.base-container {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
 
 // ヘッダー
 header {
   box-shadow: 0 0 5px #2f21f1;
 }
+
 .nav-item.active {
   margin-top: 5px;
   padding-left: 30px;

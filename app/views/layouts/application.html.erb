@@ -13,13 +13,12 @@
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 <body>
-  <header>
+  <header class="sticky-top">
   <% unless devise_page %>
     <%= render 'shared/header' %>
   <% end %>
   </header>
-
-  <main>
+  <div class="base-container">
     <div class="container-fluid py-5 mw-md">
       <% if flash.notice %>
         <div class="alert alert-success">
@@ -33,8 +32,8 @@
       <% end %>
       <%= yield %>
     </div>
-    <!-- /.main-container -->
-  </main>
+  </div>
+  <!-- /.base-container -->
   <footer></footer>
 </body>
 </html>
