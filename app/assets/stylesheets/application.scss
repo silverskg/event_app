@@ -40,6 +40,24 @@ header {
   margin-top: 5px;
   padding-left: 30px;
 }
+
+.navbar-toggler-icon span {
+  position: absolute;
+    left: 5px;
+    width: 80%;
+    height: 2px;
+    background-color: #F16821;
+    border-radius: 1px;
+}
+
+.navbar-toggler-icon{
+  position: relative;
+    width: 40px;
+    height: 40px;
+    background: none;
+    appearance: none;
+    cursor: pointer;
+}
 // snsレイアウト
 .line-img{
   margin-right: 4px;
