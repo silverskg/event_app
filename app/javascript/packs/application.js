@@ -4,17 +4,16 @@
 // that code so it'll be compiled.
 
 
-import "bootstrap/dist/js/bootstrap"
+
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-import "bootstrap"
-import "bootstrap/scss/bootstrap.scss"
+import "channels"
+import "bootstrap/dist/js/bootstrap"
 window.jQuery = window.$ = require('jquery')
 
-// Bootstrap
-require("bootstrap/dist/js/bootstrap")
+
 
 // カレンダー
 require('flatpickr')

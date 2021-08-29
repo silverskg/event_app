@@ -1,37 +1,38 @@
-<nav class="navbar navbar-expand-md navbar-light">
+<nav class="navbar navbar-expand-md fixed-top navbar-light bg-light">
   <%= link_to "アルバイト募集帳", root_path, class: 'navbar-brand' %>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon">
-      <span></span>
-      <span></span>
-      <span></span>
-    </span>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav ml-auto">
-      <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to 'アルバイトを追加', new_event_path, class: 'nav-link'%>
-        </li>
-        <!-- /.navbar-nav -->
-        <li class="nav-item active">
-          <%= link_to 'アカウント編集', edit_user_registration_path, class: 'nav-link' %>
-        </li>
-        <li class="nav-item active">
-          <%=  link_to "退会する",  new_retirements_path, class: "nav-link"%>
-        </li>
-        <li class="nav-item active">
-          <%= link_to "ユーザー一覧", users_path, class: "nav-link" %>
-        </li>
-      <% else %>
-        <%= render 'devise/shared/line'%>
-        <%= render 'devise/shared/github' %>
-        <li class="nav-item active">
-          <%= link_to 'アカウント', new_user_registration_path, class: 'nav-link' %>
-        </li>
-        <li class="nav-item active">
-          <%= link_to 'ログイン', new_user_session_path, class: 'nav-link'%>
-        </li>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <% if user_signed_in? %>
+          <li class="nav-item active">
+            <%= link_to 'アルバイトを追加', new_event_path, class: 'nav-link'%>
+          </li>
+          <!-- /.navbar-nav -->
+          <li class="nav-item active">
+            <%= link_to 'アカウント編集', edit_user_registration_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item active">
+            <%=  link_to "退会する",  new_retirements_path, class: "nav-link"%>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "ユーザー一覧", users_path, class: "nav-link" %>
+          </li>
+        <% else %>
+          <%= render 'devise/shared/line'%>
+          <%= render 'devise/shared/github' %>
+          <li class="nav-item active">
+            <%= link_to 'アカウント', new_user_registration_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to 'ログイン', new_user_session_path, class: 'nav-link'%>
+          </li>
       <% end %>
     </ul>
   </div>
