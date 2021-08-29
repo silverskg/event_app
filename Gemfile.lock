@@ -122,6 +122,7 @@ GEM
       activesupport (>= 5.0.0)
     json (2.5.1)
     jwt (2.2.3)
+    line-bot-api (1.21.0)
     listen (3.5.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -288,6 +289,7 @@ DEPENDENCIES
   hamlit-rails (~> 0.2.3)
   html2haml (~> 2.2.0)
   jbuilder (~> 2.7)
+  line-bot-api
   listen (~> 3.2)
   omniauth (~> 1.9.1)
   omniauth-github (~> 1.4.0)
