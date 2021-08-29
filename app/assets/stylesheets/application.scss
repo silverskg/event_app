@@ -15,15 +15,87 @@
  *= require_self
  */
 
-@import "bootstrap/scss/bootstrap";
+@import 'bootstrap/scss/bootstrap';
 @import "simple_calendar";
 
 
 // 全体
-.main-container {
+.container-fluid {
   @extend .container-fluid;
   max-width: 768px;
   padding: 1rem;
+}
+
+.base-container {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+// ヘッダー
+header {
+  box-shadow: 0 0 5px #2f21f1;
+}
+
+.nav-item.active {
+  margin-top: 5px;
+  padding-left: 30px;
+}
+
+
+.navbar-light .navbar-toggler {
+  border-color: rgba(0, 0, 0, 0);
+  outline: none;
+}
+
+.navbar-light .navbar-toggler-icon {
+  background-image: none;
+}
+
+.navbar-toggler-icon {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  background: none;
+  appearance: none;
+  cursor: pointer;
+  &,
+  span {
+    display: inline-block;
+    box-sizing: border-box;
+  }
+  span {
+    position: absolute;
+    left: 5px;
+    width: 80%;
+    height: 2px;
+    background-color: rgba(165, 165, 165, 1);
+    border-radius: 1px;
+    &:nth-of-type(1) {
+      top: 8px;
+    }
+    &:nth-of-type(2) {
+      top: 20px;
+    }
+    &:nth-of-type(3) {
+      top: 32px;
+    }
+  }
+}
+
+.navbar-toggler[aria-expanded='true'] {
+  span.navbar-toggler-icon {
+    span {
+      &:nth-of-type(1) {
+        transform: translateY(12px) rotate(-315deg);
+      }
+      &:nth-of-type(2) {
+        opacity: 0;
+      }
+      &:nth-of-type(3) {
+        transform: translateY(-12px) rotate(315deg);
+      }
+    }
+  }
 }
 
 
