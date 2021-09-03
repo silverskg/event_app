@@ -1,4 +1,5 @@
 class Event < ApplicationRecord
+  require 'line/bot'  # gem 'line-bot-api'
   belongs_to :owner, class_name: "User"
   has_many :tickets, dependent: :destroy
 
@@ -15,6 +16,7 @@ class Event < ApplicationRecord
   end
 
   def send_message
+    binding.pry
     message = {
       type: 'text',
       text: 'アルバイトの更新がありました!以下サイトからご確認に方よろしくお願いします。
@@ -22,9 +24,15 @@ class Event < ApplicationRecord
     }
     user_id = "U2f1f080dcff189b5db34fc229d1d5a0e"
     response = client.push_message(user_id, message)
+
     # user_id = event['source']['userId'] 
     # response = client.push_message(user_id, message)
 
+    # body = request.body.read
+    # signature = request.env['HTTP_X_LINE_SIGNATURE']
+    # unless client.validate_signature(body, signature)
+    #   error 400 do 'Bad Request' end
+    # end
     # events = client.parse_events_from(body)
 
     # events.each { |event|
