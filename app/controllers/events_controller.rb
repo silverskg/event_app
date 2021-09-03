@@ -25,15 +25,7 @@ class EventsController < ApplicationController
     @event.start_time = Time.zone.local(d.year, d.month, d.day, s.hour, s.min)
     @event.end_time = Time.zone.local(d.year, d.month, d.day, e.hour, e.min)
     if @event.save
-      #lineメッセージの処理
-      message = {
-        type: 'text',
-        text: 'アルバイトの更新がありました!以下サイトからご確認に方よろしくお願いします。
-        https://work-event.herokuapp.com/'
-      }
-      user_id = "U2f1f080dcff189b5db34fc229d1d5a0e"
-      response = client.push_message(user_id, message)
-      # Linebot.send_message
+      @event.send_message
       redirect_to @event, notice: "作成しました"
     else
       flash.now[:alert] = "未入力欄があります"
@@ -76,11 +68,4 @@ class EventsController < ApplicationController
     super 
   end
 
-  # linemessage_api
-  def client
-    @client ||= Line::Bot::Client.new { |config|
-      config.channel_secret = ENV["LINE_CHANNEL_SECRET"]
-      config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
-    }
-  end
 end
