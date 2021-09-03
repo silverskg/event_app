@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  require 'line/bot'  # gem 'line-bot-api'
+
   # before_action :authenticate_user!
   skip_before_action :authenticate, only: :show, raise: false
   # before_action :authenticate_user!, except: :show
@@ -23,6 +25,7 @@ class EventsController < ApplicationController
     @event.start_time = Time.zone.local(d.year, d.month, d.day, s.hour, s.min)
     @event.end_time = Time.zone.local(d.year, d.month, d.day, e.hour, e.min)
     if @event.save
+      @event.send_message
       redirect_to @event, notice: "作成しました"
     else
       flash.now[:alert] = "未入力欄があります"
@@ -64,4 +67,5 @@ class EventsController < ApplicationController
   def authenticate
     super 
   end
+
 end

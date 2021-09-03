@@ -1,14 +1,15 @@
 .main {
   max-width: 1280px;
+  margin-top: 30px;
   margin-left: auto;
   margin-right: auto;
   display: flex;
 }
 
 .event-container {
-  width: 80%;
+  width: 100%;
 }
 
 .event-user{
-  width: 20%;
+  // width: 20%;
 }
