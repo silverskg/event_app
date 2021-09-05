@@ -25,6 +25,7 @@ gem 'dotenv-rails'
 
 gem 'rails-i18n', '~> 6.0.0'
 
+#lineログイン
 gem 'omniauth-line'
 
 gem 'simple_calendar', '~> 2.0'

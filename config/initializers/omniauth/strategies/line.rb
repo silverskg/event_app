@@ -2,7 +2,7 @@
 module OmniAuth
   module Strategies
     class Line < OmniAuth::Strategies::OAuth2
-      option :scope, 'email profile openid' #追記
+      option :scope, 'email profile openid ' #追記
       info do
         {
           name:        raw_info['displayName'],
