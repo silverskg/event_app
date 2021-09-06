@@ -14,7 +14,7 @@ class LinebotController < ApplicationController
   end
 
   def callback
-    binding.pry
+    # binding.pry
     # Postモデルの中身をランダムで@postに格納する
     @post=Post.offset( rand(Post.count) ).first
     body = request.body.read
