@@ -1,5 +1,5 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  
+  binding.pry
   def line
     callback_for(:line)
   end

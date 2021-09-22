@@ -1,5 +1,5 @@
 AUTH_URI = 'https://access.line.me/oauth2/v2.1/authorize'
-
+binding.pry
 def auth_uri(state)
   params = {
     response_type: 'code',

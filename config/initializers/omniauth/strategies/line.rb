@@ -1,4 +1,5 @@
 # require 'omniauth-oauth2'
+binding.pry
 module OmniAuth
   module Strategies
     class Line < OmniAuth::Strategies::OAuth2

@@ -1,7 +1,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # skip_before_action :authenticate, only: :create
   protect_from_forgery
-
+  binding.pry
   def build_resource(hash = {})
     # 自作したメソッドを使いuidを必ず埋める
     # hash[:provider] = User.create_unique_string
