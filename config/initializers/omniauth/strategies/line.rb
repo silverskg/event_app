@@ -1,5 +1,5 @@
 # require 'omniauth-oauth2'
-binding.pry
+{:provider_ignores_state => true}
 module OmniAuth
   module Strategies
     class Line < OmniAuth::Strategies::OAuth2

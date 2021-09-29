@@ -12,6 +12,8 @@ class User < ApplicationRecord
   has_many :tickets, dependent: :nullify
   has_many :participathing_events, through: :tickets, source: :event
 
+  {:provider_ignores_state => true}
+
   def self.find_for_sns_oauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create! do |user|
       # 名前を取得するときはこのように書く（今回はUserモデルにname属性がないのでエラーなる） 

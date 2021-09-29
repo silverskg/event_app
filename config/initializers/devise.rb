@@ -274,7 +274,7 @@ Devise.setup do |config|
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   config.omniauth :github, ENV["GITHUB_ID"], ENV["GITHUB_SECRET"], scope: "user:email"
   config.omniauth :line, ENV["LINE_ID"], ENV["LINE_SECRET"], callback_url: " 
-  http://localhost:3000/users/auth/line/callback"
+  https://1406-2001-ce8-180-3918-5cc0-dbcf-ab61-70b0.ngrok.io/users/auth/line/callback"
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.

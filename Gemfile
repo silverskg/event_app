@@ -38,7 +38,7 @@ gem 'will_paginate'
 gem 'will_paginate-bootstrap4'
 
 #line-bot
-gem 'line-bot-api'
+# gem 'line-bot-api'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -1,15 +1,17 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  binding.pry
+  protect_from_forgery except: [:callback]
   def line
-    callback_for(:line)
+    binding.pry
+    callback(:line)
   end
 
   def github
-    callback_for(:github)
+    binding.pry
+    callback(:github)
   end
 
   private
-  def callback_for(provider)
+  def callback(provider)
     @user = User.find_for_sns_oauth(request.env["omniauth.auth"])
     session[:user_id] = @user.id
     if @user.persisted? # データベースに保存されていればログイン成功
