@@ -1,4 +1,4 @@
-# require 'omniauth-oauth2'
+require 'omniauth-oauth2'
 {:provider_ignores_state => true}
 module OmniAuth
   module Strategies

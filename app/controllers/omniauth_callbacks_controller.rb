@@ -1,15 +1,14 @@
-class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+class OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  # 以下を追加
   protect_from_forgery except: [:callback]
   def line
-    binding.pry
     callback(:line)
   end
 
   def github
-    binding.pry
     callback(:github)
   end
-
+# binding.pry
   private
   def callback(provider)
     @user = User.find_for_sns_oauth(request.env["omniauth.auth"])
@@ -22,5 +21,4 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       redirect_to new_user_registration_url
     end
   end
-
 end

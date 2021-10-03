@@ -295,10 +295,11 @@ DEPENDENCIES
   html2haml (~> 2.2.0)
   jbuilder (~> 2.7)
   listen (~> 3.2)
-  omniauth (~> 1.9.1)
+  omniauth
   omniauth-github (~> 1.4.0)
-  omniauth-line
-  omniauth-rails_csrf_protection (~> 0.1.2)
+  omniauth-line (~> 0.1.0)
+  omniauth-oauth2 (~> 1.7.0)
+  omniauth-rails_csrf_protection
   pg (>= 0.18, < 2.0)
   pry-byebug
   pry-rails

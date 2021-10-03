@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   post '/callback' => 'linebot#callback'
   # get "/auth/:provider/callback" => "sessions#callback"
   devise_for :users, controllers: {
-    omniauth_callbacks: "users/omniauth_callbacks",
+    # omniauth_callbacks: "users/omniauth_callbacks",
     registrations: "users/registrations",
+    omniauth_callbacks: "omniauth_callbacks"
     # sessions: "users/sessions"
   }
   resources :users

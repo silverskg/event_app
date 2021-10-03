@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-  require 'line/bot'  # gem 'line-bot-api'
+  # require 'line/bot'  # gem 'line-bot-api'
   belongs_to :owner, class_name: "User"
   has_many :tickets, dependent: :destroy
 
