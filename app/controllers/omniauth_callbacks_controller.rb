@@ -2,14 +2,23 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # 以下を追加
   protect_from_forgery except: [:callback]
   def line
+    
+    # stateが異なっていたら例外を出す
+    # raise Line::InvalidState unless params[:state] == session[:state]
+
+    # line_user_id = Line::Api::Oauth.new(admin).line_user_id(params[:code])
+    # User.create!(line_user_id: line_user_id)
+
     callback(:line)
   end
 
   def github
     callback(:github)
   end
-# binding.pry
+
+
   private
+
   def callback(provider)
     @user = User.find_for_sns_oauth(request.env["omniauth.auth"])
     session[:user_id] = @user.id

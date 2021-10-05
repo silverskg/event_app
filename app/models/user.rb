@@ -30,6 +30,23 @@ class User < ApplicationRecord
   end
 
 
+  def self.auth_uri
+    params = {
+      response_type: 'code',
+      client_id: @user.line_login_id,
+      redirect_uri: callback_uri,
+      state: state,
+      scope: 'openid',
+      prompt: 'consent', # 必ずLINE認証を許可するようにするオプション
+      bot_prompt: 'aggressive' # ログイン後に連携した公式アカウントと友だちになるか聞く画面を出してくれる
+    }
+  
+    # NOTE: https://developers.line.biz/ja/docs/line-login/integrate-line-login/#making-an-authorization-request
+    "#{AUTH_URI}?#{params.to_query}"
+  end
+  
+
+
   #///追加 lineログイン
   def social_profile(provider)
     social_profiles.select { |sp| sp.provider == provider.to_s }.first
