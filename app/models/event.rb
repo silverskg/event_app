@@ -16,17 +16,18 @@ class Event < ApplicationRecord
   end
 
   def send_message
-    binding.pry
+    # binding.pry
     message = {
       type: 'text',
       text: 'アルバイトの更新がありました!以下サイトからご確認に方よろしくお願いします。
-      https://work-event.herokuapp.com/'
+      https://work-event.herokuapp.com/event'
     }
     user_id = "U2f1f080dcff189b5db34fc229d1d5a0e"
     response = client.push_message(user_id, message)
-
-    # user_id = event['source']['userId'] 
-    # response = client.push_message(user_id, message)
+  
+  # user_id = event['source']['userId'] 
+  # response = client.push_message(message)
+    
 
     # body = request.body.read
     # signature = request.env['HTTP_X_LINE_SIGNATURE']

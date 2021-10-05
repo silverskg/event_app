@@ -1,8 +1,9 @@
-# require 'omniauth-oauth2'
+require 'omniauth-oauth2'
+{:provider_ignores_state => true}
 module OmniAuth
   module Strategies
     class Line < OmniAuth::Strategies::OAuth2
-      option :scope, 'email profile openid' #追記
+      option :scope, 'email profile openid ' #追記
       info do
         {
           name:        raw_info['displayName'],

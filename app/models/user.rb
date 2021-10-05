@@ -11,7 +11,9 @@ class User < ApplicationRecord
   has_many :created_events, class_name: "Event", foreign_key: "owner_id", dependent: :nullify
   has_many :tickets, dependent: :nullify
   has_many :participathing_events, through: :tickets, source: :event
- 
+
+  {:provider_ignores_state => true}
+
   def self.find_for_sns_oauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create! do |user|
       # 名前を取得するときはこのように書く（今回はUserモデルにname属性がないのでエラーなる） 
@@ -28,7 +30,46 @@ class User < ApplicationRecord
   end
 
 
+  def self.auth_uri
+    params = {
+      response_type: 'code',
+      client_id: @user.line_login_id,
+      redirect_uri: callback_uri,
+      state: state,
+      scope: 'openid',
+      prompt: 'consent', # 必ずLINE認証を許可するようにするオプション
+      bot_prompt: 'aggressive' # ログイン後に連携した公式アカウントと友だちになるか聞く画面を出してくれる
+    }
   
+    # NOTE: https://developers.line.biz/ja/docs/line-login/integrate-line-login/#making-an-authorization-request
+    "#{AUTH_URI}?#{params.to_query}"
+  end
+  
+
+
+  #///追加 lineログイン
+  def social_profile(provider)
+    social_profiles.select { |sp| sp.provider == provider.to_s }.first
+  end
+
+  def set_values(omniauth)
+    return if provider.to_s != omniauth["provider"].to_s || uid != omniauth["uid"]
+    credentials = omniauth["credentials"]
+    info = omniauth["info"]
+
+    access_token = credentials["refresh_token"]
+    access_secret = credentials["secret"]
+    credentials = credentials.to_json
+    name = info["name"]
+    # self.set_values_by_raw_info(omniauth['extra']['raw_info'])
+  end
+
+  def set_values_by_raw_info(raw_info)
+    self.raw_info = raw_info.to_json
+    self.save!
+  end
+
+  #///ここまで
 
   private
 

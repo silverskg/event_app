@@ -25,7 +25,7 @@ class EventsController < ApplicationController
     @event.start_time = Time.zone.local(d.year, d.month, d.day, s.hour, s.min)
     @event.end_time = Time.zone.local(d.year, d.month, d.day, e.hour, e.min)
     if @event.save
-      @event.send_message
+      # @event.send_message
       redirect_to @event, notice: "作成しました"
     else
       flash.now[:alert] = "未入力欄があります"

@@ -60,5 +60,6 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-  config.hosts << '.ngrok.io'
+  config.hosts.clear
+  # config.hosts << "https://ebbe-2001-ce8-180-3918-5cc0-dbcf-ab61-70b0.ngrok.io"
 end
