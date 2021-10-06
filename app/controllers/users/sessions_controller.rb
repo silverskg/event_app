@@ -12,4 +12,12 @@ class Users::SessionsController < Devise::SessionsController
     reset_session
     redirect_to root_path, notice: "ログアウトしました"
   end
+
+  def guest_sign_in
+    # ゲストアカウントでログイン
+    sign_in User.guest
+    # トップページへリダイレクト
+    redirect_to root_path, notice: "ゲストユーザーとしてログインしました。"
+  end
+  
 end

@@ -12,7 +12,6 @@ class User < ApplicationRecord
   has_many :tickets, dependent: :nullify
   has_many :participathing_events, through: :tickets, source: :event
 
-  {:provider_ignores_state => true}
 
   def self.find_for_sns_oauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create! do |user|
@@ -45,7 +44,16 @@ class User < ApplicationRecord
     "#{AUTH_URI}?#{params.to_query}"
   end
   
+#///ゲストログイン メソッド
+  def self.guest
+    find_or_create_by!(email: "guest@example.com") do |user|
+      user.password = SecureRandom.urlsafe_base64
+      # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
+      # 例えば name を入力必須としているならば， user.name = "ゲスト" なども必要
+    end
+  end
 
+#////ここまで
 
   #///追加 lineログイン
   def social_profile(provider)
