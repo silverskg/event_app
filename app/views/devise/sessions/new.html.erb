@@ -52,6 +52,11 @@
       <p><span>------------</span> 専用にアカウントを作成しますか？ <span>------------</span></p>
       <%= link_to "アカウントを作成", new_user_registration_path %>
     </div>
+    <br>
+    <div class="box-newusr">
+      <p><span>------------</span> 軽く閲覧したい方はこちらから<span>------------</span></p>
+      <%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, method: :post %>
+    </div>
   </div>
 </div>
 
