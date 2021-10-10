@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :created_events, class_name: "Event", foreign_key: "owner_id", dependent: :nullify
   has_many :tickets, dependent: :nullify
   has_many :participathing_events, through: :tickets, source: :event
+  has_many :messages
 
 
   def self.find_for_sns_oauth(auth)
