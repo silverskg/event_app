@@ -1,11 +1,13 @@
+import consumer from "./consumer"
+
 const chatChannel = consumer.subscriptions.create("RoomChannel",{
 
   received: function(data) {
-    return alert(data['message']);
+    return  $('#messages').append(data['message']);
   },
 
-  speak: function(message){
-    return this.perform('speak',{
+  speak: function(message) {
+    return this.perform('speak', {
       message: message
     });
   }
