@@ -15,6 +15,11 @@
             <td>
               <% if current_user %>
                 <%= link_to user.name, user %>
+                <% if user.image_url == "" %>
+                  <%= image_tag "github_image.png", width: 70, height: 60, class: "image_icons" %>
+                <% else %>
+                  <%= image_tag user.image_url, width: 70, height: 60, class: "image_icons" %>
+                <% end %>
               <% else %>
                 <%= user.id %>
               <% end %> 
