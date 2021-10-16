@@ -11,7 +11,8 @@ require("@rails/activestorage").start()
 require("channels")
 import "channels"
 import "bootstrap/dist/js/bootstrap"
-window.jQuery = window.$ = require('jquery')
+// window.jQuery = window.$ = require('jquery')
+require('jquery');
 
 
 
