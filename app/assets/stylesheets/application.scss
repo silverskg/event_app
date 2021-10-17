@@ -22,7 +22,7 @@
 // 全体
 .container-fluid {
   @extend .container-fluid;
-  max-width: 768px;
+  // max-width: 768px;
   padding: 1rem;
 }
 
@@ -101,7 +101,68 @@ header {
     }
   }
 }
+//top説明
 
+.example {
+  position: relative;
+  }
+
+.text-content{
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  /*文字の装飾は省略*/
+  }
+
+.example p{
+  color: black;/*文字を白に*/
+  background: skyblue;/*背景色*/
+  font-size: 35px;
+  font-weight: bold;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+}
+
+.example img {
+  width: 100%;
+  }
+
+// コンテンツ
+.description{
+  margin-bottom: 30px;
+  margin-top: auto;
+  text-align: center;
+  color: black;
+  background: skyblue;
+  padding: 50px 35px;
+}
+
+.features{
+  margin-top: auto;
+  text-align: center;
+  color: black;
+  background: #f0e8df;
+  padding: 50px 35px;
+}
+
+.box-features{
+  margin-top: 20px;
+  margin-top: 20px;
+  border: 3px solid orange;
+  padding: .5em;
+  border-radius: .5em;
+}
 
 // snsレイアウト
 .line-img{
@@ -249,8 +310,14 @@ header {
 
 
 
-
-
+/// フッター
+footer {
+  margin-top: auto;
+  padding: 10px;
+  text-align: center;
+  color: black;
+  background-color: #f0e8df;
+}
 
 
 
