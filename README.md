@@ -1,4 +1,4 @@
-![トップページ.jpg](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/1b7f1a91-49c0-c6a5-4656-5b181e27a81f.jpeg)
+![トップページ.png](https://user-images.githubusercontent.com/57898864/137627388-4d89a472-e55b-4e69-854c-ae15ea9b9833.png)
 
 # 制作背景
 サービスの概要としては、複雑にならず必要とされるものだけを置いたシンプルな「勤怠管理アプリ」をイメージしたものです。
@@ -8,26 +8,27 @@
 
 ## URL
 
-- URL: https://shalibo.netlify.app
+- URL: https://work-event.herokuapp.com
 - ゲストログインボタンで簡単にログインできます。
 
-![スクリーンショット 2021-07-04 11.44.48.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/6bfe5771-ce2b-5101-44f7-84b12006e42a.png)
+<img width="730" alt="スクリーンショット 2021-10-18 7 43 00" src="https://user-images.githubusercontent.com/57898864/137700199-bc8e801c-5429-4534-b4b4-73b97cd753d4.png">
+<br>
+<br>
+ログインボタンからでもゲストログインできます。
 
-Qiita に詳細を執筆しております。
-[Vue.js、FireBase で読書管理アプリを作ってみた](https://qiita.com/oga0927/items/abf48b692b11fec6ae36)
+https://user-images.githubusercontent.com/57898864/137809299-dfffc21d-0907-4d37-a8ff-1b527a28972b.mov
+
+<br>
+<br>
+
+
 <br>
 <br>
 
 ## ER 図
 
-![Untitled Diagram (1).png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/646313e3-2a27-62f9-7063-3b13a03757d1.png)
+<img width="728" alt="スクリーンショット 2021-10-18 17 52 54" src="https://user-images.githubusercontent.com/57898864/137699880-1250e4af-824f-4f84-9383-a38b62103215.png">
 <br>
-<br>
-<br>
-
-## インフラ構成図
-
-![インフラ構成図.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/cb5c036e-398e-7e77-22f4-296a0b16c2da.png)
 <br>
 <br>
 
@@ -56,13 +57,13 @@ Qiita に詳細を執筆しております。
 | ３   | ログイン機能 　　　　　　         |
 | ４   | ゲストユーザーログイン機能 　　   |
 | ５   | ログアウト機能　　　　　　　　    |
-| ６   | アルバイトの検索機能 　                   |
+| ６   | アルバイトの検索機能 　（未）                   |
 | ７   | アルバイトの追加機能(CRUD) 　             |
 | ８   | 投稿内容更新機能(CRUD)            |
 | ９   | 投稿内容削除機能(CRUD)            |
-| １０ | コメント機能(Ajax) 　             |
-| １１ | スタッフの詳細一覧機能 　               |
-| １２ | ランキングページ   |
+| １０ | コメント機能 　             |
+| １１ | スタッフの詳細一覧機能 （未）　               |
+| １２ | 日数管理機能　（未）   |
 | １3 | マイページ機能                    |
 
 <br>
@@ -73,11 +74,12 @@ Qiita に詳細を執筆しております。
 
 ### 1. トップページ
 
-![スクリーンショット 2021-07-04 16.09.57.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/1148695b-8c81-4c71-1049-bc5f72432d63.png)
+<img width="1432" alt="スクリーンショット 2021-10-18 18 35 01" src="https://user-images.githubusercontent.com/57898864/137706396-8472cb6c-0d34-49b6-8631-719ddaadee1d.png">
+
 
 - 最初にトップページへアクセスすると画面が描画されます。
 - ログイン、ユーザー登録が配置
-- ヘッダーのロゴ（SHALIBO）を押すとトップページへリダイレクト。
+- ヘッダーのロゴ（助っ人マスター）を押すとトップページへリダイレクト。
   <br>
   <br>
   <br>
@@ -89,7 +91,8 @@ Qiita に詳細を執筆しております。
   <br>
   <br>
 
-![ログイン.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/65ac92af-c074-c383-fccf-460f8a699eed.gif)
+https://user-images.githubusercontent.com/57898864/137810040-93ce0716-99bf-4457-852c-101aec963032.mov
+
 <br>
 <br>
 
@@ -115,25 +118,17 @@ end
   <br>
   <br>
 
-### 3. ユーザー登録
+### 3. アルバイト（イベント）の追加
 
-![ユーザー登録.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/5431fcf3-66bd-4d54-5695-d90555c509e5.gif)
-- UserName、Email、Password を入力して登録。<br>
-- (ユーザーネームを入力しない場合はゲストログイン名として表示されます)
-  <br>
-  <br>
-  <br>
-
-### 4. 本の投稿
-
-![スクリーンショット 2021-07-04 19.44.09.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/7a361f0d-26fa-f01c-88d8-68364a1482f1.png)
+<img width="1432" alt="スクリーンショット 2021-10-18 18 44 17" src="https://user-images.githubusercontent.com/57898864/137708710-ee9bdc2e-3da7-4c77-b233-76d242be3a26.png">
 
 - 投稿ボタンクリックで投稿ページ遷移
   <br>
   <br>
   <br>
 
-![スクリーンショット 2021-07-04 19.48.16.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/eff56f42-42a4-2f55-db28-ac278b2f8898.png)
+<img width="1432" alt="スクリーンショット 2021-10-18 18 59 27" src="https://user-images.githubusercontent.com/57898864/137710450-7f503359-bad5-43f3-a913-b7f7e040db29.png">
+
 
 - 仕事名・場所・曜日時刻・仕事内容
 - 曜日時刻ではflatpickrを採用してますので、カレンダー表示で選択できます。
@@ -141,7 +136,7 @@ end
   <br>
   <br>
 
-![スクリーンショット 2021-07-04 20.08.49.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/4512394a-0343-22cd-58ee-ce93c90a2ede.png)
+<img width="1432" alt="スクリーンショット 2021-10-18 19 13 31" src="https://user-images.githubusercontent.com/57898864/137712696-e69dbc41-327c-4fd9-acb8-728148b19a14.png">
 
 
 - LINE Message API を取得していますので、公式のLine_botを友達登録していれば、「送る」ボタンを押すと登録しているユーザーに通知が届くようになります。
@@ -150,41 +145,30 @@ end
 <br>
 <br>
 
-![質問内容.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/9b5eb1c0-81fd-ef23-050f-994884bf4cc7.png)
+![IMG_F55B578C6171-1](https://user-images.githubusercontent.com/57898864/137713238-04561828-36bb-441d-a3f8-b3c294cbd911.jpeg)
 
-- 内容に沿って投稿していただくだけて投稿可能。
+
+- 更新があると伝えてくれます。
 
 <br>
 <br>
 <br>
 
-### 5. 仕事一覧
+### 4. 仕事一覧
 
-- 投稿した内容は、他のユーザーが書き込めないようにログイン中の userid と
-created_by?メソッドを使用しアルバイトを作成したユーザーがアルバイト詳細ページを閲覧した時のみ削除・編集リンクを表示するようにしています。。<br>
+- 投稿した内容は、他のユーザーが書き込めないようにログイン中の user_id と
+created_by?メソッドを使用しアルバイトを作成したユーザーがアルバイト詳細ページを閲覧した時のみ編集・削除・送るボタンを表示するようにしています。<br>
 - 削除ボタンを押すと、アラートでメッセージが表示され、OK ボタンを押すと削除されます。<br>
 
-![スクリーンショット 2021-07-04 21.26.02.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/53d818a2-c7ce-4ded-855e-1a0e061e613c.png)
+<img width="1432" alt="スクリーンショット 2021-10-18 19 24 11" src="https://user-images.githubusercontent.com/57898864/137713905-0df889fb-9a6b-4306-a0f1-6435d43bc03b.png">
 
 <br>
 <br>
 <br>
 
-### 6. 投稿した内容、アカウント削除
+### 5. レスポンシブ対応
 
-![アカウント削除.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/2ce207e3-d8af-073a-1d51-c6a3d4e857a3.gif)
-
-- 投稿したアルバイトの一覧を表示。
-- 編集ボタンで投稿したの内容を修正。
-- 削除ボタンを押すとトップページ、マイページからも削除されます。
-- アカウント削除ボタンをクリックすると削除されます。
-  <br>
-  <br>
-  <br>
-
-### 7. レスポンシブ対応
-
-![レスポンシブ.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/7768f5de-b014-e41c-6dee-02ea3414ec41.gif)
+https://user-images.githubusercontent.com/57898864/137810181-f9c7f4ef-2073-47f1-9d85-c4add4476d07.mov
 
 - Bootstrap を使用してスマートフォンからでも使用可能
 - デバイスによってハンバーガーメニューを実装
@@ -192,21 +176,7 @@ created_by?メソッドを使用しアルバイトを作成したユーザーが
   <br>
   <br>
 
-### 8.バリデーション
-
-- E-mail、Password は必須項目<br>
-- パスワードは 6 文字以上の入力が必須<br>
-- 登録済みのアドレスはアラートでお知らせ
-
-![スクリーンショット 2021-07-04 19.39.20.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/9c4f0f5b-0977-515d-fc7b-95838ad1ea5b.png)
-
-
-
-  <br>
-  <br>
-  <br>
-
-### 10. 工夫したところ（実装面）
+### 6. 工夫したところ（実装面）
 
 #### ① OAuthを利用して「LINEでログイン」機能を作る
 
@@ -229,6 +199,9 @@ def callback(provider)
 <br><br>
 
 #### ② 非同期処理で参加コメント作成・キャンセル
+
+https://user-images.githubusercontent.com/57898864/137810280-087a2265-6fcc-4d80-97d3-0ac540595ca5.mov
+
 参加コメントを入力する際モーダルウィンドウが表示されるようになります。
 ```Ruby
 <% if user_signed_in? == @ticket.nil? %>
@@ -274,11 +247,40 @@ def callback(provider)
 <br>
 <br>
 
-#### 11 今後実装したい内容
+#### ③ゲストユーザーは、編集・削除できないように設定
+
+<br>
+<br>
+
+- 下記のように設定し、誤って「更新」や「削除」をクリックしても、フラッシュメッセージが表示され、ホーム画面にリダイレクトされるようにしました。
+
+```ruby
+Rails.application.routes.draw do
+  root 'homes#index'
+  devise_for :user, controllers: {
+    registrations: 'users/registrations'
+  }
+(略)
+end
+```
+
+```ruby
+class Users::RegistrationsController < Devise::RegistrationsController
+  before_action :ensure_normal_user, only: %i[update destroy]
+
+  def ensure_normal_user
+    if resource.email == "guest@example.com"
+      redirect_to root_path, alert: "ゲストユーザーの更新・削除はできません。"
+    end
+  end
+end
+
+```
+
+
+
+#### 7 今後実装したい内容
 
 - 現在表示だけで、未実装なランキング形式での表示機能。<br>
 - 場所選択時にGoogleMapとの連携で現在地までマップ表示できるように。<br>
 - いろんなユーザーに使用してもらう為に、Room分けを取り付けたい。パスワードにて入室できるように。<br>
-- 
-
-  ![マイページ.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/84bafa9e-1827-3ca6-d560-3e54251e70c8.gif)

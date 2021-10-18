@@ -1,0 +1,29 @@
+<h1 class="text-center">アルバイト表</h1>
+<div class="box">
+  <div class="box-inner">
+  <div class="event-user">
+    <%= render "layouts/user_page"%>
+  </div>
+  <!-- /.event-user -->
+  </div>
+  <!-- /.box-inner -->
+</div>
+<!-- /.box -->
+<div class="main">
+  <div class="event-container">
+    <ul class="list-group">
+      <%= month_calendar events: @events do |date, events| %>
+        <%= date.day %>
+        <% events.each do |event| %>
+        <div>
+          <%= link_to event.name.truncate(5), event %>
+        </div>
+        <% end %>
+      <% end %>
+      <%= link_to '予定を書く', new_event_path, class: "btn btn-secondary btn-lg" %>
+    </ul>
+    <!-- /.list-group -->
+  </div>
+  <!-- /.event-container -->
+</div>
+<!-- /.main -->
