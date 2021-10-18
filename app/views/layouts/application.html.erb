@@ -14,9 +14,7 @@
 </head>
 <body>
   <header class="fixed-top">
-    <% unless devise_page %>
       <%= render 'shared/header' %>
-    <% end %>
   </header>
   <div class="base-container">
     <div class="container-fluid py-5 mw-md">
@@ -34,6 +32,8 @@
     </div>
   </div>
   <!-- /.base-container -->
-  <footer></footer>
 </body>
+<footer>
+<%= render 'layouts/footer'%>
+</footer>
 </html>

@@ -12,6 +12,10 @@
       <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
+            <%= link_to 'ホーム', new_event_path, class: 'nav-link'%>
+          </li>
+          <!-- /.navbar-nav -->
+          <li class="nav-item active">
             <%= link_to 'アルバイトを追加', new_event_path, class: 'nav-link'%>
           </li>
           <!-- /.navbar-nav -->
@@ -22,14 +26,11 @@
             <%=  link_to "ログアウト",  new_retirements_path, class: "nav-link"%>
           </li>
         <% else %>
-          <%= render 'devise/shared/line'%>
-          <div class="center-line"></div>
-          <%= render 'devise/shared/github' %>
-          <li class="nav-item active">
-            <%= link_to 'アカウント', new_user_registration_path, class: 'nav-link' %>
-          </li>
           <li class="nav-item active">
             <%= link_to 'ログイン', new_user_session_path, class: 'nav-link'%>
+          </li>
+          <li class="nav-item active">
+            <%= link_to 'ユーザー登録', new_user_registration_path, class: 'nav-link' %>
           </li>
       <% end %>
     </ul>
