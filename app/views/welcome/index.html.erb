@@ -2,14 +2,19 @@
   <section id="heading">
     <div class="row">
       <div class="d-flex flex-column justify-content-center example">
-        <h1><img class="logo" src="/assets/roof_log.png"></h1>
-        <p class="text-center">目指せ助っ人マスター!!</p>
-        <div class="text-content">
-          <div class="text-center text-lg-start">
-            <%= link_to "今すぐはじめる", new_user_registration_path, class: 'btn btn-outline-dark rounded-pill' %>
-            <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: 'btn btn-outline-danger rounded-pill' %>
+        <div class="top-title"><h2 class="text-center text-lg-start" style="font-weight: bold;">目指せ助っ人マスター！</h2></div>
+        <!-- /.top-title -->
+        <div class="top-content"><img class="img-fluid" src="/assets/roof_log.png"></div>
+        <div class="sign-box">
+          <div class="sign-content">
+            <div class="text-center text-lg-start">
+              <%= link_to "今すぐはじめる", new_user_registration_path, class: 'btn btn-outline-dark rounded-pill' %>
+              <%= link_to "LINEでログイン", user_line_omniauth_authorize_path, method: :post, class: 'btn btn-outline-success rounded-pill' %>
+              <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: 'btn btn-outline-danger rounded-pill' %>
+            </div>
           </div>
         </div>
+        <!-- /.sign-box -->
       </div>
     </div>
   </section>
@@ -45,13 +50,13 @@
 
           <div class="col-lg-4 col-md-6 mt-4 mt-md-0">
             <div class="box-features">
-              <h4 class="contents-title">Lvアップ機能</h4>
+              <h4 class="contents-title">日数管理機能</h4>
               <!-- /.contents__title -->
             </div>
             <!-- /.box -->
             <p>
-            アルバイトの日数、技術が上がればレベルが上がり。
-            人材単価を上げることも可能！？
+            アルバイトの日数、現在何日働いているか一目でわかります。
+            人材単価を上げることも可能かも！？
             </p>
           </div>
 
@@ -70,51 +75,3 @@
     </div>
   </section>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-<h1 class="text-center">アルバイト表</h1>
-<div class="box">
-  <div class="box-inner">
-  <div class="event-user">
-    <%= render "layouts/user_page"%>
-  </div>
-  <!-- /.event-user -->
-  </div>
-  <!-- /.box-inner -->
-</div>
-<!-- /.box -->
-<div class="main">
-  <div class="event-container">
-    <ul class="list-group">
-      <%= month_calendar events: @events do |date, events| %>
-        <%= date.day %>
-        <% events.each do |event| %>
-        <div>
-          <%= link_to event.name.truncate(5), event %>
-        </div>
-        <% end %>
-      <% end %>
-      <%= link_to '予定を書く', new_event_path, class: "btn btn-secondary btn-lg" %>
-    </ul>
-    <!-- /.list-group -->
-  </div>
-  <!-- /.event-container -->
-  <div>
-  <ul>
-    <% @rooms.each do |room| %>
-      <li><%= link_to "Room#{room.id}", room_path(room)%></li>
-    <% end %>
-  </ul>
-</div>
-
-</div>
-<!-- /.main -->

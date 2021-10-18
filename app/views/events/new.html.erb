@@ -1,3 +1,6 @@
+<div class="event-container-box">
 <%= form_with model: @event, html: { class: "notification-contents admin-contents-area" }, url: events_path,  local: true do |form| %>
     <%= render :partial => 'form', :locals => {:form => form} %>
 <% end %>
+</div>
+<!-- /.event-container -->
