@@ -42,7 +42,7 @@
       <!-- /.card-header -->
       <div class="card-body">
         <% if @event.owner %>
-          <%= image_tag @event.owner.image_url, width: 50, height: 50 %>
+          <%= image_tag @event.image_owner, width: 50, height: 50 %>
           <%= "#{@event.owner.name}" %>
         <% else %>
           退会したユーザー

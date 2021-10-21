@@ -80,6 +80,14 @@ class User < ApplicationRecord
     self.save!
   end
 
+  def image_owner
+    if self.image_url == ""
+      self.image_url = "roof_log.png"
+    else
+      self.image_url
+    end
+  end
+
   #///ここまで
 
   private
