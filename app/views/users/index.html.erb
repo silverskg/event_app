@@ -1,6 +1,6 @@
 <div class="container-fluid py-5 mw-md">
   <div class="contents-title text-center">
-    <h4 class="title">やる気あるユーザー</h4>
+    <h4 class="title">やる気あるユーザー(全<%= User.count %>名)</h4>
     <div class="row">
       <div class="col-sm-9">
       <% @users.each do |user| %>
@@ -59,7 +59,7 @@
         <p class="rank_status">
           Lv.<%= user[:id] %><br>
           <% if user.image_url == "" %>
-            <%= image_tag "github_image.png", width: 70, height: 60, class: "image_icons" %>
+            <%= image_tag "roof_log.png", width: 70, height: 60, class: "image_icons" %>
           <% else %>
             <%= image_tag user.image_url, width: 70, height: 60, class: "image_icons" %>
           <% end %>

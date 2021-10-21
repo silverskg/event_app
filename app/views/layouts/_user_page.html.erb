@@ -23,5 +23,8 @@
     </tbody>
     </thead>
   </table>
+  <% if User.count > 5%>
+  <%= link_to "他のログインユーザーを見る 他ユーザー数#{User.count  - 5}人", users_path %>
+  <% end %>
 </div>
 <!-- /.event-user-container -->
