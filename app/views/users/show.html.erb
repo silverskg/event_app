@@ -1,9 +1,77 @@
-<h4>個人ページの開設中</h4>
-<h2>仕様内容</h2>
-<ul class="list-style">
-  <li>月のアルバイトした数の管理</li>
-  <li>月間の売り上げ金額</li>
-  <li>スケットレベル</li>
-</ul>
-<!-- /.list-style -->
-
+<div class="container">
+  <div class="row">
+    <div class="col col-sm-3">
+      <% if @user.image_url == "" %>
+        <%= image_tag "github_image.png", size: "120x100", class: "image_icons" %>
+      <% else %>
+        <%= image_tag ("github_image.png"), size: "120x100" %>
+      <% end %>
+    </div>
+    <div class="col-12 col-sm-9 col-lg-9">
+      <div class="profile">
+        <div class="row justify-content-start">
+          <h5><%= @user.name %></h5>
+          <ul class="nav-item dropdown">
+            <a href="#" id="navbarDropdown" data-toggle="dropdown">
+              <i class="material-icons">more_vert</i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item"><%= link_to 'マイページ編集', edit_user_registration_path %></a>
+              <a class="dropdown-item"><%= link_to "エクササイズ一覧", "#" %></a>
+            </div>
+          </ul>
+        </div>
+        <div class="row justify-content-between">
+          <div class="text-info">
+          <div>
+            <%=link_to "今月参加した日数",  "#" %>
+            <%= Ticket.count %>
+          </div>
+          <div class="center-line"></div>
+          <!-- /.center-line -->
+          <div>
+            <%=link_to "今月の予想金額", "#" %>
+            <%=  "〇〇円"%>
+          </div>
+          <div class="center-line"></div>
+          <!-- /.center-line -->
+          <div>
+            <%=link_to "今までの収益", "#" %>
+            <%= "〇〇円" %>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col col-sm-9 col-lg-9">
+      <div class="objective">
+        <p>目標</p>
+        <p>『  <%= @user.name %>  』</p>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <%= link_to "#{@user.name}にメッセージを送る", "#", class: 'btn btn-outline-dark btn-lg rounded-pill' %>
+  </div>
+  <div class="text-center">
+    <p><i class="material-icons" style="vertical-align:bottom;">wysiwyg</i>参加したアルバイト</p>
+  </div>
+  <div class="container">
+      <% @tickets.each do |event| %>
+      <div class="card-ariticles">
+        <div class="card-body">
+          <div class="row justify-content-between">
+            <p>エクササイズ：<%= event.comment %> <%= event.comment%> 分</p>
+            <p><%= event.comment %></p>
+          </div>
+          <div class="row">
+            <p>感想 : <%= Ticket.count %></p>
+          </div>
+        </div>
+      </div>
+      <% end %>
+  </div>
+ 
+</div><%# container %>

@@ -7,6 +7,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
+    @tickets = @user.tickets.page(params[:page]).order(created_at: :desc)
   end
 
   def create
