@@ -59,19 +59,20 @@
     <p><i class="material-icons" style="vertical-align:bottom;">wysiwyg</i>参加したアルバイト</p>
   </div>
   <div class="container">
-      <% @tickets.each do |event| %>
-      <div class="card-ariticles">
-        <div class="card-body">
-          <div class="row justify-content-between">
-            <p>エクササイズ：<%= event.comment %> <%= event.comment%> 分</p>
-            <p><%= event.comment %></p>
-          </div>
-          <div class="row">
-            <p>感想 : <%= Ticket.count %></p>
-          </div>
-        </div>
-      </div>
+    <div class="list-group">
+      <% @events.each do |event| %>
+        <%= link_to(event, class: "event_card") do %>
+          <% if current_user %>
+          <h5 class="list-item-group-heading">
+            <%= event.name %>
+          </h5>
+          <p class="md-1">
+           <%= event.place%>
+          </p>
+          <% end %>
+          <% end %>
       <% end %>
+    </div>  
+    <!-- /.list-group -->
   </div>
- 
 </div><%# container %>

@@ -9,6 +9,9 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @tickets = @user.tickets.page(params[:page]).order(created_at: :desc)
+    # binding.pry
+    @events = Event.all
+    # @evnets = user
   end
 
   def create
