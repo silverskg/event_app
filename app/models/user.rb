@@ -16,6 +16,7 @@ class User < ApplicationRecord
   has_many :ticket_events, through: :tickets, source: :event
 
   has_many :participathing_events, through: :tickets, source: :event
+  has_many :messages
 
 
   def event_list
@@ -86,6 +87,14 @@ class User < ApplicationRecord
   def set_values_by_raw_info(raw_info)
     self.raw_info = raw_info.to_json
     self.save!
+  end
+
+  def image_owner
+    if self.image_url == ""
+      self.image_url = "roof_log.png"
+    else
+      self.image_url
+    end
   end
 
   #///ここまで

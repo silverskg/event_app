@@ -1,5 +1,5 @@
 class LinebotController < ApplicationController
-  skip_before_action :authenticate_user! #deviseでの認の許可
+  # skip_before_action :authenticate_user! #deviseでの認の許可
   require 'line/bot'  # gem 'line-bot-api'
 
   # callbackアクションのCSRFトークン認証を無効

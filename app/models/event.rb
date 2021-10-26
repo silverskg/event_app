@@ -18,6 +18,14 @@ class Event < ApplicationRecord
     owner_id == user.id
   end
 
+  def image_owner
+    if owner.image_url == ""
+      owner.image_url = "roof_log.png"
+    else
+      owner.image_url
+    end
+  end
+
   def send_message
     # binding.pry
     message = {

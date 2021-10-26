@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     passwords: "users/passwords" #ゲスト
     # sessions: "users/sessions"
   }
+  get 'rooms/show'
+  get 'welcome/home'
+  resources :rooms, only: %i[show]
 
   devise_scope :user do
     post "users/guest_sign_in", to: "users/sessions#guest_sign_in"

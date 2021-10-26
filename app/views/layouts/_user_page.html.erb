@@ -4,13 +4,12 @@
     <thead class="text-center">
     <tbody class="text-center">
         <tr>
-          <th>番号</th>
           <th>名前</th>
         </tr>
         <% @users.each do |user| %> 
           <tr>
             <td>
-              <%= user.id %>
+              <%= link_to image_tag user.image_owner ,width: 70, height: 60, class: "image_icons"%>
             </td>
             <td>
               <% if current_user %>
@@ -29,5 +28,8 @@
     </tbody>
     </thead>
   </table>
+  <% if User.count > 5%>
+  <%= link_to "他のログインユーザーを見る 他ユーザー数#{User.count  - 5}人", users_path %>
+  <% end %>
 </div>
 <!-- /.event-user-container -->

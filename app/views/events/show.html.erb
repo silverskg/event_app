@@ -56,9 +56,9 @@
   <div class="col-4">
     <% if @event.created_by?(current_user) %>
       <%= link_to "編集", edit_event_path(@event), class: "btn btn-info btn-lg btn-block" %>
-      <%= link_to "削除", event_path(@event), class: "btn btn-info btn-lg btn-block", method: :delete, date: { confirm: "本当に削除しますか"} %>
+      <%= link_to "削除", event_path(@event), class: "btn btn-danger btn-lg btn-block", method: :delete, date: { confirm: "本当に削除しますか"} %>
       
-      <%= link_to "送る", callback_path(@event), class: "btn btn-info btn-lg btn-block", method: :post %>
+      <%= link_to "送る", callback_path(@event), class: "btn  btn-lg btn-block btn-success", method: :post %>
       
     <% end %>
     <% if user_signed_in? == @ticket.nil? %>
