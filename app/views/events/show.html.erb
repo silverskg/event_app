@@ -42,8 +42,8 @@
       <!-- /.card-header -->
       <div class="card-body">
         <% if @event.owner %>
-          <%= image_tag @event.image_owner, width: 50, height: 50 %>
-          <%= "#{@event.owner.name}" %>
+          <%= image_tag @event.owner.image_url, width: 50, height: 50 %>
+          <%= link_to "#{@event.owner.name}", user_path(@user) %>
         <% else %>
           退会したユーザー
         <% end %>
@@ -104,11 +104,11 @@
       <h5 class="card-header">参加者</h5>
       <!-- /.card-header -->
       <ul class="list-group list-group-flush">
-        <% @tickets.each do |ticket| %>
+        <%  @tickets.each do |ticket| %>
           <li class="list-group-item">
             <% if ticket.user %>
               <%= image_tag ticket.user.image_url, width: 20, height: 20 %>
-              <%="#{ticket.user.name}"%>
+              <%= "#{ticket.user.name}" %>
               <%= ticket.comment %>
             <% else %>
               退化したユーザー

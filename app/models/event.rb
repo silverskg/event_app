@@ -2,6 +2,9 @@ class Event < ApplicationRecord
   require 'line/bot'  # gem 'line-bot-api'
   belongs_to :owner, class_name: "User"
   has_many :tickets, dependent: :destroy
+  # :ticketing_users: は　eventがどのuserによって選ばれているのか取得
+  # through: :ticketsは多対多の関係で中間ticketテーブルを経由するための関連付けで記述
+  has_many :ticketing_users, through: :tickets, source: :user
 
   validates :name, length: { maximum: 50}, presence: true
   validates :place, length: { maximum: 100}, presence: true

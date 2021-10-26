@@ -7,6 +7,9 @@ class UsersController < ApplicationController
   end
 
   def show
+    # binding.pry
+    @user = User.find(params[:id])
+    @tickets = @user.tickets.page(params[:page]).order(created_at: :desc)
   end
 
   def create

@@ -1,0 +1,33 @@
+<div class="side-bar">
+  <section class="side-bar__group">
+    <h2 class="side-bar__group__title"></h2>
+    <li class="side-bar__group__list">
+      <%= link_to "", "#" %>
+    </li>
+    <li class="side-bar__group__list">
+      <%= link_to "", "#" %>
+    </li>
+  </section>
+</div>
+
+<% @user.ticket_events.each do |event|  %>
+  <li>
+    <%= link_to event_path(event), class: "main__table__list__item" do %>
+      <figure>
+       
+      </figure>
+      <div class="main__table__list__item__body">
+        <div class="main__table__list__item__body__text">
+          <%= event.name %>
+        </div>
+        <br>
+          <%= event.name %>
+        <i class="fas fa-chevron-right"></i>
+      </div>
+    <% end %>
+  </li>
+<% end %>
+
+
+
+

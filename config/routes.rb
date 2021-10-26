@@ -25,5 +25,9 @@ Rails.application.routes.draw do
 
   resources :events do
     resources :tickets
+    member do
+      post '/ticket/:event_id' => 'tickets#ticket', as: 'ticket'
+      delete '/ticket/:event_id' => 'tikets#unticket', as: 'unticket'
+    end
   end
 end
