@@ -8,7 +8,7 @@
           <div>
             <div class="user_card" style="width:100%;">
               <div class="card-body">
-                <div class="row justify-content-between">
+                <div class="row">
                   <% if user.image_url == "" %>
                     <%= image_tag "roof_log.png", width: 70, height: 60, class: "image_icons" %>
                   <% else %>
@@ -18,8 +18,8 @@
                     <%= user.name%>
                   </h5>
                 </div>
-                <!-- /.row justify-content-between -->
-                <a href="users/{user.id}" class="link">
+                <!-- /.row -->
+                <%= link_to(user, class: "link") do %>
                   <div class="row justify-content-start">
                     <p>今月のアルバイト数：</p>
                     <p>０</p>
@@ -30,8 +30,7 @@
                     <p>00000円</p>
                   </div>
                   <!-- /.row justify-content-start -->
-                </a>
-                <!-- /.link -->
+                  <% end %>
               </div>
               <!-- /.card-body -->
             </div>

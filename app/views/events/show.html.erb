@@ -107,7 +107,7 @@
         <%  @tickets.each do |ticket| %>
           <li class="list-group-item">
             <% if ticket.user %>
-              <%= image_tag ticket.user.image_url, width: 20, height: 20 %>
+              <%= image_tag ticket.user.image_owner, width: 40, height: 40 %>
               <%= "#{ticket.user.name}" %>
               <%= ticket.comment %>
             <% else %>
@@ -125,6 +125,6 @@
 </div>
 <!-- /.row -->
 <div class="exit-btn">
-  <%= link_to '戻る', "/", class: "btn btn-primary btn-block" %>
+  <%= link_to '戻る', welcome_home_path, class: "btn btn-primary btn-block" %>
 </div>
 <!-- /.exit-btn -->

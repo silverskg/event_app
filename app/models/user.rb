@@ -19,8 +19,12 @@ class User < ApplicationRecord
   has_many :messages
 
 
-  def event_list
-    @user.events.find_by(owner_id)
+  def image_owner
+    if user.image_url == ""
+      user.image_url = "roof_log.png"
+    else
+      user.image_url
+    end
   end
 
   def self.find_for_sns_oauth(auth)

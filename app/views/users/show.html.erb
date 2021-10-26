@@ -1,4 +1,3 @@
-
 <div class="container">
   <div class="row">
     <div class="col col-sm-3">
@@ -12,15 +11,17 @@
       <div class="profile">
         <div class="row justify-content-start">
           <h5><%= @user.name %></h5>
+          <% if current_user.id == @user.id %>
           <ul class="nav-item dropdown">
             <a href="#" id="navbarDropdown" data-toggle="dropdown">
               <i class="material-icons">more_vert</i>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item"><%= link_to 'マイページ編集', edit_user_registration_path %></a>
-              <a class="dropdown-item"><%= link_to "エクササイズ一覧", "#" %></a>
+              <a class="dropdown-item"><%= link_to "収益グラフ表示", "#" %></a>
             </div>
           </ul>
+          <% end %>
         </div>
         <div class="row justify-content-between">
           <div class="text-info">

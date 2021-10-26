@@ -9,7 +9,7 @@
         <% @users.each do |user| %> 
           <tr>
             <td>
-              <%= link_to image_tag user.image_owner ,width: 70, height: 60, class: "image_icons"%>
+              <%= image_tag user.image_owner ,width: 70, height: 60, class: "image_icons"%>
             </td>
             <td>
               <% if current_user %>
