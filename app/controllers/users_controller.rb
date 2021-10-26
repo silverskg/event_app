@@ -7,10 +7,12 @@ class UsersController < ApplicationController
   end
 
   def show
+    # binding.pry
     @user = User.find(params[:id])
     @tickets = @user.tickets.page(params[:page]).order(created_at: :desc)
     # binding.pry
     @events = Event.all
+    # @events = @tickets.where(event_id: 11)
     # @evnets = user
   end
 

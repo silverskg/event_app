@@ -25,7 +25,7 @@
           <div class="text-info">
           <div>
             <%=link_to "今月参加した日数",  "#" %>
-            <%= Ticket.count %>
+            <%= @user.tickets.count %>
           </div>
           <div class="center-line"></div>
           <!-- /.center-line -->
