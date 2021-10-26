@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @tickets = @user.tickets.page(params[:page]).order(created_at: :desc)
     # binding.pry
-    @events = Event.all
+    @events = @user.event_list.count
     # @events = @tickets.where(event_id: 11)
     # @evnets = user
   end

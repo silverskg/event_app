@@ -8,10 +8,19 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: %i[github line]
   before_destroy :check_all_events_finished
 
+  has_many :user
   has_many :created_events, class_name: "Event", foreign_key: "owner_id", dependent: :nullify
   has_many :tickets, dependent: :nullify
+  # :ticket_events はuserがどのeventに参加しているのか取得
+  # source:オプションは関連付け元の名前を指定するため記述
+  has_many :ticket_events, through: :tickets, source: :event
+
   has_many :participathing_events, through: :tickets, source: :event
 
+
+  def event_list
+    @user.events.find_by(owner_id)
+  end
 
   def self.find_for_sns_oauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create! do |user|
