@@ -59,17 +59,18 @@
     <p><i class="material-icons" style="vertical-align:bottom;">wysiwyg</i>参加したアルバイト</p>
   </div>
   <div class="container">
-    <div class="list-group">
-      <% @events.each do |event| %>
+    <div class="list-group" >
+      <% @user.ticket_events.each do |event| %>
         <%= link_to(event, class: "event_card") do %>
-          <% if current_user %>
-          <h5 class="list-item-group-heading">
+          <h5 class="list-item-group-heading" >
             <%= event.name %>
           </h5>
           <p class="md-1">
-           <%= event.place%>
+            <%= event.content%>
           </p>
-          <% end %>
+          <p class="md-1">参加中　or 終了
+            <%= l event.start_time, format: :day %>
+          </p>
           <% end %>
       <% end %>
     </div>  
