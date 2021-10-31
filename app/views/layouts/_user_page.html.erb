@@ -3,27 +3,15 @@
   <table>
     <thead class="text-center">
     <tbody class="text-center">
-        <tr>
-          <th>名前</th>
-        </tr>
         <% @users.each do |user| %> 
-          <tr>
-            <td>
-              <%= image_tag user.image_owner ,width: 70, height: 60, class: "image_icons"%>
-            </td>
-            <td>
+          <div class="box-user">
+              <%= image_tag user.image.url ,width: 70, height: 60, class: "image_icons"%>
               <% if current_user %>
                 <%= link_to user.name, user %>
-                <% if user.image_url == "" %>
-                  <%= image_tag "github_image.png", width: 70, height: 60, class: "image_icons" %>
-                <% else %>
-                  <%= image_tag user.image_url, width: 70, height: 60, class: "image_icons" %>
-                <% end %>
               <% else %>
                 <%= user.id %>
               <% end %> 
-            </td>
-          </tr>
+          </div>
         <% end %>
     </tbody>
     </thead>

@@ -1,4 +1,6 @@
 class User < ApplicationRecord 
+  mount_uploader :image, ImageUploader
+
   validates :email, presence: true, uniqueness: true
   validates :uid, presence: true, uniqueness: { scope: :provider }
   # Include default devise modules. Others available are:
@@ -21,7 +23,7 @@ class User < ApplicationRecord
 
   def image_owner
     if user.image_url == ""
-      user.image_url = "roof_log.png"
+      user.image_url = "default.png"
     else
       user.image_url
     end

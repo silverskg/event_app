@@ -1,0 +1,69 @@
+<div class="col-4">
+    <% if @event.created_by?(current_user) %>
+      <%= link_to "編集", edit_event_path(@event), class: "btn btn-info btn-lg btn-block" %>
+      <%= link_to "削除", event_path(@event), class: "btn btn-danger btn-lg btn-block", method: :delete, date: { confirm: "本当に削除しますか"} %>
+      
+      <%= link_to "送る", callback_path(@event), class: "btn  btn-lg btn-block btn-success", method: :post %>
+      
+    <% end %>
+    <% if user_signed_in? == @ticket.nil? %>
+      <button class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#createTicket">
+        参加
+      </button>
+      <div class="modal fade" id="createTicket">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="dialogHeader">参加コメント</h4>
+              <button class="close" type="button" data-dismiss="modal" &times;>
+              </button>
+              <!-- /.close -->
+              <!-- /.modal-title -->
+            </div>
+            <!-- /.modal-header -->
+            <%= form_with(model: @event.tickets.build, url: event_tickets_path(@event)) do |f| %>
+              <div class="modal-body">
+                <div id="createTicketErrors"></div>
+                <%= f.text_field :comment, class:  "form-control" %>
+              </div>
+              <!-- /.modal-body -->
+              <div class="modal-footer">
+                <button class="btn btn-default" type="button" data-dismiss="modal">
+                  キャンセル
+                </button>
+                <%= f.button "送信", class: "btn btn-primary" %>
+              </div>
+              <!-- /.modal-footer -->
+            <% end %>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal fade -->
+    <% else %>
+      <%= link_to "キャンセル", event_ticket_path(@event), method: :delete, class: "btn btn-warning btn-lg btn-block" %>
+    <% end %>
+    <hr>
+    <div class="card md-2">
+      <h5 class="card-header">参加者</h5>
+      <!-- /.card-header -->
+      <ul class="list-group list-group-flush">
+        <%  @tickets.each do |ticket| %>
+          <li class="list-group-item">
+            <% if ticket.user %>
+              <%= image_tag ticket.user.image_owner, width: 40, height: 40 %>
+              <%= "#{ticket.user.name}" %>
+              <%= ticket.comment %>
+            <% else %>
+              退化したユーザー
+            <% end %>
+          </li>
+          <!-- /.list-group-item -->
+        <% end %>
+      </ul>
+      <!-- /.list-group list-group-flush -->
+    </div>
+    <!-- /.card md-2 -->
+  </div>
+  <!-- /.col-4 -->
