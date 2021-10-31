@@ -1,5 +1,8 @@
 class Event < ApplicationRecord
   require 'line/bot'  # gem 'line-bot-api'
+
+  mount_uploader :image, ImageUploader #ImageUploaderと連結
+
   belongs_to :owner, class_name: "User"
   has_many :tickets, dependent: :destroy
   # :ticketing_users: は　eventがどのuserによって選ばれているのか取得
@@ -25,6 +28,8 @@ class Event < ApplicationRecord
       owner.image_url
     end
   end
+
+
 
   def send_message
     # binding.pry
