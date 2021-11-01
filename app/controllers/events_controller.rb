@@ -5,7 +5,9 @@ class EventsController < ApplicationController
   skip_before_action :authenticate, only: :show, raise: false
   # before_action :authenticate_user!, except: :show
 
-
+  def index
+    @events = Event.paginate(page: params[:page], per_page: 5)
+  end
   def show
     @event = Event.find(params[:id])
     @ticket = current_user && current_user.tickets.find_by(event: @event)

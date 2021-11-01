@@ -1,4 +1,56 @@
-<h1 class="mt-3 md-3"><%= @event.name %></h1>
+<div class="job-detail-box-wrap col-8">
+  <div class="job-detail-ttl-wrap">
+    <h1 class="mt-3 md-3"><%= @event.name %></h1>
+  </div>
+  <!-- /.job-detail-ttl-wrap -->
+  <div class="job-detail-box-inner">
+    <div class="job-detail-txt-wrap">
+      <div class="job-detail-caption-c">
+        <%= @event.name %>
+      </div>
+      <!-- /.job-detail-caption-c -->
+    </div>
+    <!-- /.job-detail-txt-wrap -->
+    <div class="job-detail-box-container md-2">
+      <div class="twn-job-detail-img-wrap">
+        <div class="twn-slideshow-main">
+        <%= image_tag @event.image.url%>
+        </div>
+        <!-- /.twn-slideshow-main -->
+        <div class="slideshow-thumb"></div>
+        <!-- /.slideshow-thumb -->
+      </div>
+      <!-- /.twn-job-detail-img-wrap -->
+      <div class="job-detail-tbl-wrap job-detail-tbl-main-wrap">
+        <div class="job-ditail-tbl-inner">
+          <h2>職種</h2>
+          <div class="job-detail">
+          </div>
+        </div>
+        <!-- /.job-ditail-tbl-inner -->
+        <div class="job-ditail-tbl-inner">
+          <h2>職種</h2>
+          <div class="job-detail">
+          </div>
+        </div>
+        <!-- /.job-ditail-tbl-inner -->
+        <div class="job-ditail-tbl-inner">
+          <h2>職種</h2>
+          <div class="job-detail">
+          </div>
+        </div>
+        <!-- /.job-ditail-tbl-inner -->
+      </div>
+      <!-- /.job-detail-tbl-wrap -->
+    </div>
+    <!-- /.job-detail-box-container -->
+  </div>
+  <!-- /.job-detail-box-inner -->
+</div>
+<!-- /.job-detail-box-wrap -->
+
+
+
 <% if @event.image? %>
   <p><%= image_tag @event.image.url %></p>
 <% end %>
