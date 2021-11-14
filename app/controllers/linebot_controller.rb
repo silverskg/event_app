@@ -14,18 +14,15 @@ class LinebotController < ApplicationController
   end
 
   def callback
-    # binding.pry
-   
     message = {
       type: 'text',
       text: 'アルバイトの更新がありました!以下サイトからご確認に方よろしくお願いします。
       https://work-event.herokuapp.com/event'
     }
-    # binding.pry
     provider = User.where(provider: "line")
 
-    provider.each do|uid|
-      user_id = provider[0][:uid]
+    provider.each do|values|
+      user_id = values[:uid]
       response = client.push_message(user_id, message)
     end
     # user_id = provider[0][:uid]
