@@ -1,5 +1,5 @@
 class User < ApplicationRecord 
-  mount_uploader :image, ImageUploader
+  # mount_uploader :image, ImageUploader
 
   validates :email, presence: true, uniqueness: true
   validates :uid, presence: true, uniqueness: { scope: :provider }

@@ -5,7 +5,11 @@
     <tbody class="text-center">
         <% @users.each do |user| %> 
           <div class="box-user">
-              <%= image_tag user.image.url ,width: 70, height: 60, class: "image_icons"%>
+              <% if user.image_url == "" %>
+                <%= image_tag "roof_log.png", width: 70, height: 60, class: "image_icons" %>
+              <% else %>
+                <%= image_tag user.image_url, width: 70, height: 60, class: "image_icons" %>
+              <% end %>
               <% if current_user %>
                 <%= link_to user.name, user %>
               <% else %>
