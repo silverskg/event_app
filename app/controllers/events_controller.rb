@@ -28,7 +28,6 @@ class EventsController < ApplicationController
     @event.date = Time.zone.local(d.year, d.month, d.day)
     @event.start_time = Time.zone.local(d.year, d.month, d.day, s.hour, s.min)
     @event.end_time = Time.zone.local(d.year, d.month, d.day, e.hour, e.min)
-    binding.pry
     if @event.save
       # @event.send_message
       redirect_to @event, notice: "作成しました"
@@ -65,7 +64,7 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(
-      :name, :place, :content, :start_time, :end_time, :date, :image
+      :name, :place, :content, :start_time, :end_time, :date, :image, :period
     )
   end
 

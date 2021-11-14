@@ -4,12 +4,6 @@
   </div>
   <!-- /.job-detail-ttl-wrap -->
   <div class="job-detail-box-inner">
-    <div class="job-detail-txt-wrap">
-      <div class="job-detail-caption-c">
-        <%= @event.name %>
-      </div>
-      <!-- /.job-detail-caption-c -->
-    </div>
     <!-- /.job-detail-txt-wrap -->
     <div class="job-detail-box-container md-2">
       <div class="twn-job-detail-img-wrap">
@@ -21,27 +15,6 @@
         <!-- /.slideshow-thumb -->
       </div>
       <!-- /.twn-job-detail-img-wrap -->
-      <div class="job-detail-tbl-wrap job-detail-tbl-main-wrap">
-        <div class="job-ditail-tbl-inner">
-          <h2>職種</h2>
-          <div class="job-detail">
-          </div>
-        </div>
-        <!-- /.job-ditail-tbl-inner -->
-        <div class="job-ditail-tbl-inner">
-          <h2>職種</h2>
-          <div class="job-detail">
-          </div>
-        </div>
-        <!-- /.job-ditail-tbl-inner -->
-        <div class="job-ditail-tbl-inner">
-          <h2>職種</h2>
-          <div class="job-detail">
-          </div>
-        </div>
-        <!-- /.job-ditail-tbl-inner -->
-      </div>
-      <!-- /.job-detail-tbl-wrap -->
     </div>
     <!-- /.job-detail-box-container -->
   </div>
@@ -64,6 +37,17 @@
         <p class="card-text">
           <%= @event.content %>
         </p>
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card md-2 -->
+    <div class="card md-2">
+      <h5 class="card-header">期間</h5>
+      <!-- /.card-header -->
+      <div class="card-body">
+        <p class="card-text">
+        <%= @event.period %>
+        
       </div>
       <!-- /.card-body -->
     </div>

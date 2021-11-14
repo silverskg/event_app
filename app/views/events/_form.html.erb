@@ -2,19 +2,11 @@
   <% if @event.errors.include?(:name)%>
     <p style="color: red; font-weight:850;"><%= @event.errors.full_messages_for(:name).first %></p>
   <% end %>
-  
-
-<div class="select_box">
-        <%= form.label :name %>
-        <%= form.select :name, [["屋根の吹き替え"],["瓦差し替え工事"] ,["棟の修理"],["漆喰工事"], ["片付け"], ["雨樋の交換"], ["塗装工事"], ["その他"]], {include_blank: "選択して下さい"}, { class: 'form-control' , required: true } %>
-      </div>
-      <!-- /.select_box -->    
-
-  
-</div>
-
-<div class="form-group">
-    
+  <div class="select_box">
+    <%= form.label :name, "作業項目" %>
+    <%= form.select :name, [["屋根の吹き替え"],["瓦差し替え工事"] ,["棟の修理"],["漆喰工事"], ["片付け"], ["雨樋の交換"], ["塗装工事"], ["その他"]], {include_blank: "選択して下さい"}, { class: 'form-control' , required: true } %>
+  </div>
+  <!-- /.select_box -->
 </div>
 
 <div class="form-group">
@@ -36,9 +28,15 @@
 </div>
 
 <div class="form-group">
-    <%= form.file_field :image, accept: "image/png,image/jpeg,image/gif" %> 
+  <%= form.file_field :image, accept: "image/png,image/jpeg,image/gif" %> 
+</div>
+<!-- /.form-group -->
+
+<div class="select_box">
+    <%= form.label :period, "期間" %>
+    <%= form.select :period, [["1日"],["1~2日"] ,["3日"],["１週間"], ["2週間"], ["3週間"], ["1ヶ月"], ["その他"]], {include_blank: "おおよその期間を選んで下さい"}, { class: 'form-control' , required: true } %>
   </div>
-  <!-- /.form-group -->
+  <!-- /.select_box -->
 
 <div class="form-group">
   <% if @event.errors.include?(:content)%>
@@ -49,7 +47,7 @@
 </div>
 <%= form.submit class: "btn btn-primary btn-lg btn-block" %>
 <div class="exit-btn">
-  <%= link_to '戻る', "/", class: "btn btn-primary btn-block" %>
+  <%= link_to '戻る', @event, class: "btn btn-primary btn-block" %>
 </div>
 
 <script>
