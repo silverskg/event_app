@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-sm-9">
+    <% @events.each do |event| %>
+    <div class="container">
+      <div>
+        <div class="user_card" style="width:100%;">
+          <div class="card-body">
+            <div class="row">
+              
+            </div>
+            <!-- /.row -->
+            <%= link_to(event, class: "link") do %>
+              <div class="row justify-content-start">
+                <p><%= event.name%></p>
+                <p>０</p>
+              </div>
+              <!-- /.row justify-content-start -->
+              <div class="row justify-content-start">
+                <p>現在のアルバイト日当単価：</p>
+                <p>00000円</p>
+              </div>
+              <!-- /.row justify-content-start -->
+              <% end %>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+      </div> 
+    </div>
+    <!-- /.container -->
+    <% end %>
+  </div>
+  <!-- /.col-sm-9 -->
+<%= will_paginate @events, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+</div>
+<!-- /.row -->

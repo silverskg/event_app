@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   # before_action :authenticate, except: :logged_in?
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
   # helper_method :logged_in?, :current_user
   before_action :configure_permitted_parameters, if: :devise_controller?
   # before_action :send_message
@@ -8,6 +8,14 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:email])
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
     devise_parameter_sanitizer.permit(:account_update, keys: [:email])
+  end
+
+  def after_sign_in_path_for(resource)
+    welcome_home_path # ログイン後に遷移するpathを設定
+  end
+
+  def after_sign_out_path_for(resource)
+    root_path # ログアウト後に遷移するpathを設定
   end
 
   # linemessage_api
@@ -20,12 +28,6 @@ class ApplicationController < ActionController::Base
 
   private
 
-
-  # def logged_in?
-  #   !!current_user
-  # end
-
-# binding.pry
 
 #   def current_user
 #     return unless session[:user_id]

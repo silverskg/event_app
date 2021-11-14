@@ -2,9 +2,9 @@
   <div class="row">
     <div class="col col-sm-3">
       <% if @user.image_url == "" %>
-        <%= image_tag "github_image.png", size: "120x100", class: "image_icons" %>
+        <%= image_tag "roof_log.png" , size: "120x100", class: "image_icons" %>
       <% else %>
-        <%= image_tag ("github_image.png"), size: "120x100" %>
+        <%= image_tag @user.image_url, size: "120x100", class: "image_icons" %>
       <% end %>
     </div>
     <div class="col-12 col-sm-9 col-lg-9">
