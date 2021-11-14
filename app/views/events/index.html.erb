@@ -12,12 +12,11 @@
             <%= link_to(event, class: "link") do %>
               <div class="row justify-content-start">
                 <p><%= event.name%></p>
-                <p>０</p>
               </div>
               <!-- /.row justify-content-start -->
               <div class="row justify-content-start">
-                <p>現在のアルバイト日当単価：</p>
-                <p>00000円</p>
+                <p>現在の参加人数：</p>
+                <p><%= event.tickets.count %></p>
               </div>
               <!-- /.row justify-content-start -->
               <% end %>
