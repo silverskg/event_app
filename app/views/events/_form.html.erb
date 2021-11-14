@@ -3,17 +3,14 @@
     <p style="color: red; font-weight:850;"><%= @event.errors.full_messages_for(:name).first %></p>
   <% end %>
   
-  <%= form.label :name %>
-  <%= form.text_field :name, class: "form-control" %>
-    <select class="form-control">
-        <option value="">選択してください</option>
-        <option value="Webデザイナー">Webデザイナー</option>
-        <option value="Webディレクター">Webディレクター</option>
-        <option value="フロントエンドエンジニア">フロントエンドエンジニア</option>
-        <option value="バックエンドエンジニア">バックエンドエンジニア</option>
-        <option value="ゴリラ">ゴリラ</option>
-        <option value="その他">その他</option>
-    </select>
+
+<div class="select_box">
+        <%= form.label :name %>
+        <%= form.select :name, [["屋根の吹き替え"],["瓦差し替え工事"] ,["棟の修理"],["漆喰工事"], ["片付け"], ["雨樋の交換"], ["塗装工事"], ["その他"]], {include_blank: "選択して下さい"}, { class: 'form-control' , required: true } %>
+      </div>
+      <!-- /.select_box -->    
+
+  
 </div>
 
 <div class="form-group">
