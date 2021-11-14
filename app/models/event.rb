@@ -14,6 +14,7 @@ class Event < ApplicationRecord
   validates :content, length: { maximum: 2000}, presence: true
   validates :start_time, presence: true
   validates :end_time, presence: true
+  validates :period, presence: true
   validate :start_time_should_be_before_end_time
 
   def created_by?(user)
