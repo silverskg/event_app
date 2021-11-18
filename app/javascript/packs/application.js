@@ -14,6 +14,7 @@ import "bootstrap/dist/js/bootstrap"
 // window.jQuery = window.$ = require('jquery')
 require('jquery');
 
+import '@fortawesome/fontawesome-free/js/all';
 
 
 // カレンダー
