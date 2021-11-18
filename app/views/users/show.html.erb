@@ -6,22 +6,23 @@
       <% else %>
         <%= image_tag @user.image_url, size: "120x100", class: "image_icons" %>
       <% end %>
+      <% if current_user.id == @user.id %>
+          <ul class="btn-group ">
+            <a href="#" id="navbarDropdown" data-toggle="dropdown">
+            <div class="btn btn-outline-dark btn-lg  user-icon">変更</div>
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item"><%= link_to 'マイページ編集', edit_user_registration_path %></a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item"><%= link_to "収益グラフ表示", "#" %></a>
+            </div>
+          </ul>
+          <% end %>
     </div>
     <div class="col-12 col-sm-9 col-lg-9">
       <div class="profile">
         <div class="row justify-content-start">
           <h5><%= @user.name %></h5>
-          <% if current_user.id == @user.id %>
-          <ul class="nav-item dropdown">
-            <a href="#" id="navbarDropdown" data-toggle="dropdown">
-              <i class="material-icons">more_vert</i>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item"><%= link_to 'マイページ編集', edit_user_registration_path %></a>
-              <a class="dropdown-item"><%= link_to "収益グラフ表示", "#" %></a>
-            </div>
-          </ul>
-          <% end %>
         </div>
         <div class="row justify-content-between">
           <div class="text-info">
@@ -46,19 +47,11 @@
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col col-sm-9 col-lg-9">
-      <div class="objective">
-        <p>目標</p>
-        <p>『  <%= @user.name %>  』</p>
-      </div>
-    </div>
-  </div>
   <div class="row justify-content-center">
     <%= link_to "#{@user.name}にメッセージを送る", "#", class: 'btn btn-outline-dark btn-lg rounded-pill' %>
   </div>
   <div class="text-center">
-    <p><i class="material-icons" style="vertical-align:bottom;">wysiwyg</i>参加したアルバイト</p>
+    <p>参加したアルバイト<i class="fas fa-hand-holding-usd" style="vertical-align:text-top;"></i></p>
   </div>
   <div class="container">
     <div class="list-group" >

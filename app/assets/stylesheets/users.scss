@@ -6,6 +6,15 @@
   justify-content: center;
 }
 
+.profile{
+  padding: 10px 15px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 50px;
+  box-shadow: 9px 12px 8px #ccc;
+  width: 100%;
+}
+
 .event_card {
   padding: 20px;
   margin-top: 20px;
@@ -17,6 +26,10 @@
 .image_icons {
   border-radius: 60%;
   margin-right: 10px;
+}
+
+.user-icon{
+  margin-left: 100px;
 }
 
 .material-icons{
