@@ -11,4 +11,4 @@
 </ul>
 <!-- / -->
 <hr>
-<%= link_to "退会する", retirements_path, method: :post, remote: true, class: "btn btn-danger", date: {confirm: "本当に退会しますか"}%>
+<%= link_to "退会する", retirements_path, method: :post, data: {confirm: "本当に退会しますか"}, class: "btn btn-danger"%>
