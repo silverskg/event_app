@@ -7,11 +7,17 @@
         <div class="top-content"><img class="img-fluid" src="/assets/roof_log.png" alt=""></div>
         <div class="sign-box">
           <div class="sign-content">
+          <% if user_signed_in? %>
+          <div class="text-center text-lg-start">
+              <%= link_to '早速募集をしてみよう！！', new_event_path, class: 'btn btn-outline-danger rounded-pill'%>
+              </div>
+          <% else %>
             <div class="text-center text-lg-start">
               <%= link_to "今すぐはじめる", new_user_registration_path, class: 'btn btn-outline-dark rounded-pill' %>
               <%= link_to "LINEでログイン", user_line_omniauth_authorize_path, method: :post, class: 'btn btn-outline-success rounded-pill' %>
               <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: 'btn btn-outline-danger rounded-pill' %>
             </div>
+          <% end %>
           </div>
         </div>
         <!-- /.sign-box -->
