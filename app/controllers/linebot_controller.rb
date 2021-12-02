@@ -14,9 +14,7 @@ class LinebotController < ApplicationController
   end
 
   def callback
-    if User.guest
-      redirect_to welcome_home_path, alert: "ゲストユーザーは送信ができません。"
-    else
+    if current_user.provider == "line"
       message = {
         type: 'text',
         text: 'アルバイトの更新がありました!以下サイトからご確認に方よろしくお願いします。
@@ -28,6 +26,8 @@ class LinebotController < ApplicationController
         response = client.push_message(user_id, message)
       end
       redirect_to welcome_home_path, notice: "送信しました"
+    else
+      redirect_to welcome_home_path, alert: "ゲストユーザーは送信ができません。"
     end
   end
 
