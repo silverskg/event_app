@@ -5,8 +5,6 @@ class Event < ApplicationRecord
 
   belongs_to :owner, class_name: "User"
   has_many :tickets, dependent: :destroy
-  # :ticketing_users: は　eventがどのuserによって選ばれているのか取得
-  # through: :ticketsは多対多の関係で中間ticketテーブルを経由するための関連付けで記述
   has_many :ticketing_users, through: :tickets, source: :user
 
   validates :name, length: { maximum: 50}, presence: true
@@ -41,42 +39,6 @@ class Event < ApplicationRecord
     }
     user_id = "U2f1f080dcff189b5db34fc229d1d5a0e"
     response = client.push_message(user_id, message)
-  
-  # user_id = event['source']['userId'] 
-  # response = client.push_message(message)
-    
-
-    # body = request.body.read
-    # signature = request.env['HTTP_X_LINE_SIGNATURE']
-    # unless client.validate_signature(body, signature)
-    #   error 400 do 'Bad Request' end
-    # end
-    # events = client.parse_events_from(body)
-
-    # events.each { |event|
-
-    #   case event
-    #   when Line::Bot::Event::Message
-    #     case event.type
-    #     when Line::Bot::Event::MessageType::Text
-    #       message = {
-    #         type: 'text',
-    #         text: 'アルバイトの更新がありました!以下サイトからご確認に方よろしくお願いします。
-    #         https://work-event.herokuapp.com/'
-    #       }
-    #       client.reply_message(event['replyToken'], message)
-    #     when Line::Bot::Event::MessageType::Follow #友達登録イベント
-    #       userId = event['source']['userId'] 
-    #       User.find_or_create_by(uid: userId)
-    #     when Line::Bot::Event::MessageType::Unfollow #友達削除イベント
-    #       userId = event['source']['userId']  
-    #       user = User.find_by(uid: userId)
-    #       user.destroy if user.present?
-    #     end
-    #   end
-    #   response = client.push_message(user_id, message)
-    # }
-    # head :ok
   end
 
   private

@@ -1,5 +1,4 @@
 class User < ApplicationRecord 
-  # mount_uploader :image, ImageUploader
 
   validates :email, presence: true, uniqueness: true
   validates :uid, presence: true, uniqueness: { scope: :provider }
@@ -56,7 +55,6 @@ class User < ApplicationRecord
       bot_prompt: 'aggressive' # ログイン後に連携した公式アカウントと友だちになるか聞く画面を出してくれる
     }
   
-    # NOTE: https://developers.line.biz/ja/docs/line-login/integrate-line-login/#making-an-authorization-request
     "#{AUTH_URI}?#{params.to_query}"
   end
   
