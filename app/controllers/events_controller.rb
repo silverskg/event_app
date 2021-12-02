@@ -1,9 +1,7 @@
 class EventsController < ApplicationController
   require 'line/bot'  # gem 'line-bot-api'
 
-  # before_action :authenticate_user!
   skip_before_action :authenticate, only: :show, raise: false
-  # before_action :authenticate_user!, except: :show
 
   def index
     @events = Event.paginate(page: params[:page], per_page: 5)
@@ -29,7 +27,6 @@ class EventsController < ApplicationController
     @event.start_time = Time.zone.local(d.year, d.month, d.day, s.hour, s.min)
     @event.end_time = Time.zone.local(d.year, d.month, d.day, e.hour, e.min)
     if @event.save
-      # @event.send_message
       redirect_to @event, notice: "作成しました"
     else
       flash.now[:alert] = "未入力欄があります"
@@ -39,17 +36,11 @@ class EventsController < ApplicationController
 
   def edit
     @event = current_user.created_events.find(params[:id])
-    
-    # @event = Event.find(params[:id])params[:calendar][:date].to_date
-    
-    # @event = current_user.created_events.find(params[:id])
   end
 
   def update
-    # @event = Event.find(params[:id])
     @event = current_user.created_events.find(params[:id])
     if @event.update(event_params)
-      # binding.pry
       redirect_to @event, notice: "更新しました"
     end
   end
