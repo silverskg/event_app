@@ -14,17 +14,21 @@ class LinebotController < ApplicationController
   end
 
   def callback
-    message = {
-      type: 'text',
-      text: 'アルバイトの更新がありました!以下サイトからご確認に方よろしくお願いします。
-      https://work-event.herokuapp.com/events'
-    }
-    provider = User.where(provider: "line")
-    provider.each do|values|
-      user_id = values[:uid]
-      response = client.push_message(user_id, message)
+    if User.guest
+      redirect_to welcome_home_path, alert: "ゲストユーザーは送信ができません。"
+    else
+      message = {
+        type: 'text',
+        text: 'アルバイトの更新がありました!以下サイトからご確認に方よろしくお願いします。
+        https://work-event.herokuapp.com/events'
+      }
+      provider = User.where(provider: "line")
+      provider.each do|values|
+        user_id = values[:uid]
+        response = client.push_message(user_id, message)
+      end
+      redirect_to welcome_home_path, notice: "送信しました"
     end
-    redirect_to welcome_home_path, notice: "送信しました"
   end
 
 end
